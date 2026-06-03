@@ -27,14 +27,20 @@ export default function Contact() {
             <div className="flex flex-col justify-end">
               <div className="space-y-8 sm:space-y-10">
                 <a
-                  href="mailto:ival.permana24@email.com"
+                  href="mailto:ivalpermana24@gmail.com"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const gmailUrl =
+                      "https://mail.google.com/mail/?view=cm&fs=1&to=ivalpermana24@gmail.com";
+                    window.open(gmailUrl, "_blank");
+                  }}
                   className="group block py-2 px-2 rounded hover:bg-surface/30 transition-colors duration-300"
                 >
                   <span className="font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.2em] text-tertiary block mb-2 sm:mb-3">
                     Email
                   </span>
                   <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-sans text-primary group-hover:text-accent transition-colors duration-500 relative inline-block break-all sm:break-normal">
-                    ival.permana24@email.com
+                    ivalpermana24@gmail.com
                     <span className="absolute -bottom-2 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                   </span>
                 </a>
@@ -53,6 +59,8 @@ export default function Contact() {
                     <span className="absolute -bottom-2 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                   </span>
                 </a>
+
+                {/* GitHub moved to footer */}
 
                 <div className="grid grid-cols-2 gap-6 sm:gap-8 pt-8 sm:pt-10 border-t border-border">
                   <div>

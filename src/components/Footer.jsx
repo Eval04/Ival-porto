@@ -6,15 +6,22 @@ export default function Footer() {
           © 2026 Ival Permana. Semua sistem beroperasional.
         </span>
         <div className="flex gap-8">
-          {["GitHub", "LinkedIn"].map((social) => (
-            <a
-              key={social}
-              href="#"
-              className="font-mono text-[10px] uppercase tracking-[0.2em] text-tertiary hover:text-primary transition-colors duration-300"
-            >
-              {social}
-            </a>
-          ))}
+          <a
+            href="https://github.com/Eval04"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[10px] uppercase tracking-[0.2em] text-tertiary hover:text-primary transition-colors duration-300"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/ival-permana-5273b6306"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-[10px] uppercase tracking-[0.2em] text-tertiary hover:text-primary transition-colors duration-300"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
     </footer>

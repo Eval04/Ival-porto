@@ -1,0 +1,19 @@
+{
+  "generated": true,
+  "palette": {
+    "void": "#09090b",
+    "primary": "#fafafa",
+    "accent": "#d4d4d8",
+    "border": "#27272a"
+  },
+  "files": [
+    "css.svg",
+    "docker.svg",
+    "flutter.svg",
+    "html5.svg",
+    "nodejs.svg",
+    "postgresql.svg",
+    "redis.svg"
+  ],
+  "note": "Kept official icons for Node.js, HTML/CSS, PostgreSQL, Redis, Docker, and Flutter (used for Dart/Flutter). Other placeholders removed; add manual SVGs to this folder when ready."
+}

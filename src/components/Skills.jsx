@@ -1,5 +1,21 @@
 import SectionReveal from "./SectionReveal";
 
+import nodejsIcon from "../assets/images/logos/nodejs.svg";
+import html5Icon from "../assets/images/logos/html5.svg";
+import flutterIcon from "../assets/images/logos/flutter.svg";
+import postgresIcon from "../assets/images/logos/postgresql.svg";
+import redisIcon from "../assets/images/logos/redis.svg";
+import dockerIcon from "../assets/images/logos/docker.svg";
+
+const iconMap = {
+  "Node.js": nodejsIcon,
+  "HTML / CSS": html5Icon,
+  "Dart / Flutter": flutterIcon,
+  PostgreSQL: postgresIcon,
+  Redis: redisIcon,
+  Docker: dockerIcon,
+};
+
 export default function Skills() {
   const categories = [
     {
@@ -78,9 +94,22 @@ export default function Skills() {
                       key={item.name}
                       className="group flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 sm:gap-4 py-1"
                     >
-                      <span className="text-primary font-sans text-base sm:text-lg md:text-xl group-hover:text-accent transition-colors duration-300">
-                        {item.name}
-                      </span>
+                      {iconMap[item.name] ? (
+                        <div className="flex items-center gap-4">
+                          <img
+                            src={iconMap[item.name]}
+                            alt={item.name + " icon"}
+                            className="w-8 h-8 object-contain"
+                          />
+                          <span className="text-primary font-sans text-base sm:text-lg md:text-xl group-hover:text-accent transition-colors duration-300">
+                            {item.name}
+                          </span>
+                        </div>
+                      ) : (
+                        <span className="text-primary font-sans text-base sm:text-lg md:text-xl group-hover:text-accent transition-colors duration-300">
+                          {item.name}
+                        </span>
+                      )}
                       <span className="font-mono text-[9px] sm:text-[10px] text-tertiary text-left sm:text-right max-w-full sm:max-w-[200px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-x-2 group-hover:translate-x-0 hidden sm:block">
                         {item.context}
                       </span>
