@@ -98,3 +98,11 @@
 body {
   cursor: none;
 }
+
+/* Hide custom cursor on mobile */
+@media (max-width: 767px) {
+  .cursor,
+  .cursor-dot {
+    display: none;
+  }
+}

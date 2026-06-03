@@ -51,37 +51,40 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-32 md:py-40 px-6 md:px-12 lg:px-24 bg-void relative"
+      className="py-20 sm:py-28 md:py-32 lg:py-40 px-4 sm:px-6 md:px-12 lg:px-24 bg-void relative"
     >
       <div className="max-w-7xl mx-auto">
         <SectionReveal>
-          <div className="mb-24 md:mb-32">
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-tertiary block mb-6">
+          <div className="mb-16 sm:mb-20 md:mb-24 lg:mb-32">
+            <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-tertiary block mb-4 sm:mb-6">
               04 — Tools & Teknologi
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-primary leading-[1.05] max-w-3xl text-balance">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-primary leading-[1.05] max-w-3xl text-balance">
               Tools yang saya gunakan untuk membangun aplikasi.
             </h2>
           </div>
         </SectionReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 md:gap-x-16 md:gap-y-20">
           {categories.map((category, catIndex) => (
             <SectionReveal key={category.title} delay={catIndex * 100}>
               <div>
-                <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-tertiary border-b border-border pb-4 mb-8">
+                <h3 className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-tertiary border-b border-border pb-3 sm:pb-4 mb-6 sm:mb-8">
                   {category.title}
                 </h3>
-                <ul className="space-y-5">
+                <ul className="space-y-3 sm:space-y-5">
                   {category.items.map((item) => (
                     <li
                       key={item.name}
-                      className="group flex items-baseline justify-between gap-4"
+                      className="group flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 sm:gap-4 py-1"
                     >
-                      <span className="text-primary font-sans text-lg md:text-xl group-hover:text-accent transition-colors duration-300">
+                      <span className="text-primary font-sans text-base sm:text-lg md:text-xl group-hover:text-accent transition-colors duration-300">
                         {item.name}
                       </span>
-                      <span className="font-mono text-[10px] text-tertiary text-right max-w-[200px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-x-2 group-hover:translate-x-0 hidden md:block">
+                      <span className="font-mono text-[9px] sm:text-[10px] text-tertiary text-left sm:text-right max-w-full sm:max-w-[200px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-x-2 group-hover:translate-x-0 hidden sm:block">
+                        {item.context}
+                      </span>
+                      <span className="font-mono text-[9px] sm:hidden text-tertiary text-left opacity-70">
                         {item.context}
                       </span>
                     </li>

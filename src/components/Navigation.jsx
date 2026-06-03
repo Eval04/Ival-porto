@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -28,6 +29,7 @@ export default function Navigation() {
           IVAL.PERMANA
         </a>
 
+        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-10">
           {links.map((link) => (
             <a
@@ -40,7 +42,43 @@ export default function Navigation() {
             </a>
           ))}
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden flex flex-col gap-1.5 justify-center"
+          aria-label="Toggle menu"
+        >
+          <div
+            className={`w-5 h-0.5 bg-primary transition-all duration-500 ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`}
+          />
+          <div
+            className={`w-5 h-0.5 bg-primary transition-all duration-500 ${mobileMenuOpen ? "opacity-0" : ""}`}
+          />
+          <div
+            className={`w-5 h-0.5 bg-primary transition-all duration-500 ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+          />
+        </button>
       </div>
+
+      {/* Mobile Navigation Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-void/95 backdrop-blur-md border-b border-border animate-in fade-in slide-in-from-top-2 duration-300">
+          <div className="px-6 py-6 flex flex-col gap-4">
+            {links.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="group relative font-mono text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors duration-300 py-3 px-2 block"
+              >
+                {link.label}
+                <span className="absolute bottom-0 left-2 w-0 h-px bg-accent group-hover:w-[calc(100%-1rem)] transition-all duration-500 ease-out" />
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
