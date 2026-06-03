@@ -2,18 +2,19 @@ name: Deploy Portfolio
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   deploy:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build Docker
-        run: docker compose build
-
-      - name: Restart container
-        run: docker compose up -d
+      - name: Deploy
+        run: |
+          cd /home/ival/apps/portfolio
+          docker compose down || true
+          docker compose up -d --build
