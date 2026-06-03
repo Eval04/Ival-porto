@@ -1,6 +1,6 @@
 import SectionReveal from "./SectionReveal";
 import ArchitectureDiagram from "./ArchitectureDiagram";
-import profilePhoto from "../assets/images/Ival.jpg";
+import profilePhoto from "../assets/images/IvalV2.jpg";
 
 export default function About() {
   return (
