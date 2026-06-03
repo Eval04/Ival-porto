@@ -71,12 +71,8 @@ export default function About() {
                   </div>
 
                   <p className="text-tertiary mb-2 pl-0 sm:pl-4">
-                    Menggunakan cara kerja yang terukur dan praktis.
-                  </p>
-
-                  <p className="text-tertiary mb-6 pl-0 sm:pl-4">
-                    Tujuan: memastikan semuanya bekerja dengan mulus tanpa
-                    hambatan.
+                    Menggunakan cara kerja yang terukur dan praktis. Memastikan
+                    semuanya bekerja dengan mulus tanpa hambatan.
                   </p>
 
                   {/* Cursor berkedip di akhir */}
