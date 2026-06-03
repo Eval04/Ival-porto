@@ -14,10 +14,11 @@ export default function Projects() {
     },
     {
       title: "CodeTack",
-      subtitle: "Platform Pembelajaran Interaktif — Juara 2 ICONFEST 3.0",
+      subtitle:
+        "Platform Pembelajaran Interaktif — 🥈 2nd Place ICONFEST 3.0 National",
       description:
-        "Platform edukasi coding interaktif untuk pemula. Dibangun oleh tim 3 orang (Rahyan sebagai ketua). Saya mengembangkan modul pembelajaran CSS lengkap dan berkontribusi pada live coding environment untuk real-time code execution. Stack: HTML, CSS, Tailwind, JavaScript.",
-      tags: ["HTML", "CSS", "Tailwind", "JavaScript", "Team Project"],
+        "Platform edukasi coding interaktif untuk pemula yang meraih Juara 2 tingkat nasional di ICONFEST 3.0. Saya mengembangkan modul pembelajaran CSS lengkap — mulai dari selector, box model, flexbox, grid, hingga responsive design — dengan pendekatan hands-on. Berkontribusi pada live coding environment yang memungkinkan pengguna menulis dan melihat hasil kode secara real-time langsung di browser, tanpa perlu setup lokal.",
+      tags: ["HTML", "CSS", "Tailwind", "JavaScript", "Live Coding"],
       link: "https://justrahyan.github.io/CodeTack/",
       year: "2025",
     },
