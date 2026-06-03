@@ -1,56 +1,106 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 export default function ArchitectureDiagram() {
-  const [activeNode, setActiveNode] = useState(null)
+  const [activeNode, setActiveNode] = useState(null);
 
   const nodes = [
-    { id: 'gateway', label: 'API Gateway', x: 400, y: 40, type: 'core' },
-    { id: 'auth', label: 'Auth Service', x: 180, y: 140, type: 'service' },
-    { id: 'ai', label: 'AI Integration', x: 400, y: 140, type: 'service' },
-    { id: 'core', label: 'EcoTrace Core', x: 620, y: 140, type: 'service' },
-    { id: 'postgres', label: 'PostgreSQL', x: 180, y: 260, type: 'database' },
-    { id: 'redis', label: 'Redis Cache', x: 400, y: 260, type: 'database' },
-    { id: 'docker', label: 'Docker Swarm', x: 620, y: 260, type: 'infra' },
-  ]
+    { id: "react", label: "React.js + Vite", x: 400, y: 40, type: "frontend" },
+    {
+      id: "firebase-auth",
+      label: "Firebase Auth",
+      x: 180,
+      y: 140,
+      type: "service",
+    },
+    {
+      id: "firestore",
+      label: "Cloud Firestore",
+      x: 400,
+      y: 140,
+      type: "database",
+    },
+    {
+      id: "recaptcha",
+      label: "reCAPTCHA v2",
+      x: 620,
+      y: 140,
+      type: "security",
+    },
+    { id: "cloudinary", label: "Cloudinary", x: 180, y: 260, type: "storage" },
+    { id: "leaflet", label: "Leaflet + OSM", x: 400, y: 260, type: "maps" },
+    {
+      id: "nominatim",
+      label: "Nominatim API",
+      x: 620,
+      y: 260,
+      type: "service",
+    },
+  ];
 
   const edges = [
-    { from: 'gateway', to: 'auth' },
-    { from: 'gateway', to: 'ai' },
-    { from: 'gateway', to: 'core' },
-    { from: 'auth', to: 'postgres' },
-    { from: 'core', to: 'postgres' },
-    { from: 'ai', to: 'redis' },
-    { from: 'core', to: 'redis' },
-    { from: 'core', to: 'docker' },
-  ]
+    { from: "react", to: "firebase-auth" },
+    { from: "react", to: "firestore" },
+    { from: "react", to: "recaptcha" },
+    { from: "react", to: "cloudinary" },
+    { from: "react", to: "leaflet" },
+    { from: "react", to: "nominatim" },
+    { from: "leaflet", to: "nominatim" },
+  ];
 
-  const getNode = (id) => nodes.find(n => n.id === id)
+  const getNode = (id) => nodes.find((n) => n.id === id);
+
+  const nodeDescriptions = {
+    react: "Frontend SPA dengan Vite, Tailwind, Shadcn UI",
+    "firebase-auth": "Multi-role Authentication (Email, Google, 3 roles)",
+    firestore: "NoSQL Database — collections: users, reports, educations",
+    recaptcha: "Bot Protection untuk laporan tamu (guest report)",
+    cloudinary: "Media Storage untuk upload foto laporan & bukti",
+    leaflet: "Interactive Map & Hotspot Visualization",
+    nominatim: "Geocoding & Reverse Geocoding untuk lokasi laporan",
+  };
 
   return (
     <div className="relative w-full aspect-[16/9] min-h-[360px] bg-surface/50">
-      <svg className="w-full h-full" viewBox="0 0 800 320" preserveAspectRatio="xMidYMid meet">
+      <svg
+        className="w-full h-full"
+        viewBox="0 0 800 320"
+        preserveAspectRatio="xMidYMid meet"
+      >
         <defs>
-          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+          <marker
+            id="arrow"
+            markerWidth="8"
+            markerHeight="8"
+            refX="6"
+            refY="4"
+            orient="auto"
+          >
             <path d="M0,0 L0,8 L8,4 z" fill="#52525b" />
           </marker>
         </defs>
 
         {edges.map((edge, i) => {
-          const from = getNode(edge.from)
-          const to = getNode(edge.to)
-          const isActive = activeNode === edge.from || activeNode === edge.to
+          const from = getNode(edge.from);
+          const to = getNode(edge.to);
+          const isActive = activeNode === edge.from || activeNode === edge.to;
 
           return (
             <g key={i}>
               <line
-                x1={from.x} y1={from.y + 22}
-                x2={to.x} y2={to.y - 22}
-                stroke={isActive ? '#a1a1aa' : '#27272a'}
+                x1={from.x}
+                y1={from.y + 22}
+                x2={to.x}
+                y2={to.y - 22}
+                stroke={isActive ? "#a1a1aa" : "#27272a"}
                 strokeWidth={isActive ? 1.5 : 1}
                 markerEnd="url(#arrow)"
                 className="transition-all duration-500"
               />
-              <circle r="2.5" fill={isActive ? '#d4d4d8' : '#52525b'} opacity={isActive ? 0.9 : 0.4}>
+              <circle
+                r="2.5"
+                fill={isActive ? "#d4d4d8" : "#52525b"}
+                opacity={isActive ? 0.9 : 0.4}
+              >
                 <animateMotion
                   dur={`${2 + i * 0.4}s`}
                   repeatCount="indefinite"
@@ -58,13 +108,14 @@ export default function ArchitectureDiagram() {
                 />
               </circle>
             </g>
-          )
+          );
         })}
 
         {nodes.map((node) => {
-          const isActive = activeNode === node.id
+          const isActive = activeNode === node.id;
+          const width = node.id === "react" ? 150 : 130;
           return (
-            <g 
+            <g
               key={node.id}
               onMouseEnter={() => setActiveNode(node.id)}
               onMouseLeave={() => setActiveNode(null)}
@@ -72,13 +123,13 @@ export default function ArchitectureDiagram() {
               style={{ transformOrigin: `${node.x}px ${node.y}px` }}
             >
               <rect
-                x={node.x - 65}
+                x={node.x - width / 2}
                 y={node.y - 18}
-                width="130"
+                width={width}
                 height="36"
                 rx="2"
-                fill={isActive ? '#27272a' : '#18181b'}
-                stroke={isActive ? '#d4d4d8' : '#3f3f46'}
+                fill={isActive ? "#27272a" : "#18181b"}
+                stroke={isActive ? "#d4d4d8" : "#3f3f46"}
                 strokeWidth="1"
                 className="transition-all duration-300"
               />
@@ -86,7 +137,7 @@ export default function ArchitectureDiagram() {
                 x={node.x}
                 y={node.y + 5}
                 textAnchor="middle"
-                fill={isActive ? '#fafafa' : '#a1a1aa'}
+                fill={isActive ? "#fafafa" : "#a1a1aa"}
                 fontFamily="JetBrains Mono, monospace"
                 fontSize="10"
                 letterSpacing="0.05em"
@@ -95,7 +146,7 @@ export default function ArchitectureDiagram() {
                 {node.label}
               </text>
             </g>
-          )
+          );
         })}
       </svg>
 
@@ -104,19 +155,16 @@ export default function ArchitectureDiagram() {
           {activeNode ? (
             <span className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              {nodes.find(n => n.id === activeNode)?.label} — {
-                activeNode === 'postgres' ? 'Primary + Read Replicas' :
-                activeNode === 'redis' ? 'Session & Cache Layer' :
-                activeNode === 'docker' ? 'Container Orchestration' :
-                activeNode === 'gateway' ? 'Rate Limiting & Routing' :
-                'Service Node Active'
-              }
+              {nodes.find((n) => n.id === activeNode)?.label} —{" "}
+              {nodeDescriptions[activeNode]}
             </span>
           ) : (
-            <span className="text-tertiary">Hover nodes to inspect architecture</span>
+            <span className="text-tertiary">
+              Hover nodes untuk melihat arsitektur EcoTrace
+            </span>
           )}
         </div>
       </div>
     </div>
-  )
+  );
 }

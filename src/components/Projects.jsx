@@ -5,19 +5,19 @@ export default function Projects() {
   const projects = [
     {
       title: "EcoTrace",
-      subtitle: "Platform Pemantauan Lingkungan",
+      subtitle: "Smart Waste Tracking — TechSprint Innovation Cup 2026",
       description:
-        "Platform monitoring lingkungan dengan arsitektur microservices. Data sensor di-ingest via message queue, diproses oleh AI service terpisah, dan disimpan ke PostgreSQL dengan time-series partitioning. Containerized dengan Docker Swarm untuk high availability dan auto-scaling.",
-      tags: ["Node.js", "PostgreSQL", "Docker", "AI", "Microservices"],
+        "Platform pelaporan sampah berbasis web dengan 3 role (warga, admin, petugas). Saya mengembangkan sistem autentikasi multi-role dengan Firebase Auth, state management untuk alur laporan 7 status (pending → completed), integrasi peta interaktif Leaflet + OpenStreetMap, dan upload bukti foto via Cloudinary. Protected route berdasarkan role dengan React Router.",
+      tags: ["React.js", "Firebase", "Tailwind", "Leaflet.js", "Cloudinary"],
       link: "https://ecotrace-id.vercel.app/",
       year: "2026",
     },
     {
       title: "CodeTack",
-      subtitle: "Platform Pembelajaran Interaktif",
+      subtitle: "Platform Pembelajaran Interaktif — Juara 2 ICONFEST 3.0",
       description:
-        "Backend infrastructure untuk platform edukasi coding interaktif. Mengelola real-time code execution environment, user progress tracking dengan Redis caching, dan content delivery pipeline. PostgreSQL untuk data analytics belajar, Docker untuk isolated sandbox environment.",
-      tags: ["Node.js", "Redis", "PostgreSQL", "Docker", "System Design"],
+        "Platform edukasi coding interaktif untuk pemula. Dibangun oleh tim 3 orang (Rahyan sebagai ketua). Saya mengembangkan modul pembelajaran CSS lengkap dan berkontribusi pada live coding environment untuk real-time code execution. Stack: HTML, CSS, Tailwind, JavaScript.",
+      tags: ["HTML", "CSS", "Tailwind", "JavaScript", "Team Project"],
       link: "https://justrahyan.github.io/CodeTack/",
       year: "2025",
     },

@@ -29,20 +29,63 @@ export default function About() {
               </h2>
             </div>
 
-            <div className="lg:col-span-7 lg:pt-20">
-              <p className="text-base sm:text-lg md:text-xl text-secondary leading-relaxed mb-4 sm:mb-6 text-balance">
-                Saya fokus pada sistem yang bekerja di belakang layar. Dari
-                database, server, hingga semua infrastruktur digital yang
-                membuat aplikasi berjalan lancar. Setiap keputusan saya buat
-                dengan memikirkan performa, keamanan, dan kemampuan untuk
-                berkembang.
-              </p>
-              <p className="text-sm sm:text-base text-tertiary leading-relaxed text-balance">
-                Saya menggunakan cara kerja yang terukur dan praktis. Bukan
-                hanya menulis kode, tetapi membuat sistem yang tahan lama dan
-                dapat menangani pertumbuhan. Tujuan saya adalah memastikan
-                semuanya bekerja dengan mulus tanpa hambatan.
-              </p>
+            {/* TERMINAL AESTHETIC */}
+            <div className="lg:col-span-7 lg:pt-10">
+              <div className="border border-border rounded-sm overflow-hidden bg-surface/80 backdrop-blur-sm">
+                {/* Terminal Header */}
+                <div className="flex items-center gap-2 px-4 py-3 bg-void border-b border-border">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                  </div>
+                  <span className="font-mono text-[10px] text-tertiary ml-3 tracking-wider">
+                    ival@portfolio — ~/about
+                  </span>
+                </div>
+
+                {/* Terminal Body */}
+                <div className="px-4 sm:px-6 py-6 sm:py-8 font-mono text-sm sm:text-base leading-relaxed">
+                  <div className="mb-6">
+                    <span className="text-emerald-500 mr-2">$</span>
+                    <span className="text-accent">cat</span>
+                    <span className="text-primary ml-2">whoami.txt</span>
+                  </div>
+
+                  <p className="text-secondary mb-4 pl-0 sm:pl-4">
+                    Backend developer yang fokus pada sistem di balik layar.
+                    Dari database, server, hingga infrastruktur digital yang
+                    membuat aplikasi berjalan lancar.
+                  </p>
+
+                  <p className="text-tertiary mb-6 pl-0 sm:pl-4">
+                    Setiap keputusan dibuat dengan memikirkan performa,
+                    keamanan, dan kemampuan untuk berkembang. Bukan hanya
+                    menulis kode, tetapi membuat sistem yang tahan lama.
+                  </p>
+
+                  <div className="mb-6">
+                    <span className="text-emerald-500 mr-2">$</span>
+                    <span className="text-accent">cat</span>
+                    <span className="text-primary ml-2">philosophy.txt</span>
+                  </div>
+
+                  <p className="text-tertiary mb-2 pl-0 sm:pl-4">
+                    Menggunakan cara kerja yang terukur dan praktis.
+                  </p>
+
+                  <p className="text-tertiary mb-6 pl-0 sm:pl-4">
+                    Tujuan: memastikan semuanya bekerja dengan mulus tanpa
+                    hambatan.
+                  </p>
+
+                  {/* Cursor berkedip di akhir */}
+                  <div className="flex items-center gap-2">
+                    <span className="text-emerald-500">$</span>
+                    <span className="w-2 h-4 bg-accent/80 animate-pulse" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </SectionReveal>
@@ -54,7 +97,7 @@ export default function About() {
                 02 — Arsitektur
               </span>
               <span className="font-mono text-[10px] sm:text-[11px] text-tertiary hidden md:block">
-                Contoh Project — Gambaran Teknis
+                EcoTrace — React + Firebase Architecture
               </span>
             </div>
             <div className="border border-border bg-surface/30 rounded-sm overflow-hidden">
