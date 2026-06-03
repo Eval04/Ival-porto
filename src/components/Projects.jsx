@@ -7,10 +7,19 @@ export default function Projects() {
       title: "EcoTrace",
       subtitle: "Platform Pemantauan Lingkungan",
       description:
-        "Aplikasi untuk memantau kondisi lingkungan secara real-time. Menggunakan AI untuk mendeteksi masalah dan membuat laporan otomatis. Dibangun untuk dapat menangani banyak pengguna.",
-      tags: ["Node.js", "PostgreSQL", "Docker", "AI", "Backend"],
+        "Platform monitoring lingkungan dengan arsitektur microservices. Data sensor di-ingest via message queue, diproses oleh AI service terpisah, dan disimpan ke PostgreSQL dengan time-series partitioning. Containerized dengan Docker Swarm untuk high availability dan auto-scaling.",
+      tags: ["Node.js", "PostgreSQL", "Docker", "AI", "Microservices"],
       link: "https://ecotrace-id.vercel.app/",
       year: "2026",
+    },
+    {
+      title: "CodeTack",
+      subtitle: "Platform Pembelajaran Interaktif",
+      description:
+        "Backend infrastructure untuk platform edukasi coding interaktif. Mengelola real-time code execution environment, user progress tracking dengan Redis caching, dan content delivery pipeline. PostgreSQL untuk data analytics belajar, Docker untuk isolated sandbox environment.",
+      tags: ["Node.js", "Redis", "PostgreSQL", "Docker", "System Design"],
+      link: "https://justrahyan.github.io/CodeTack/",
+      year: "2025",
     },
   ];
 
