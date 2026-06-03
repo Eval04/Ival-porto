@@ -26,12 +26,15 @@ export default function Contact() {
 
             <div className="flex flex-col justify-end">
               <div className="space-y-10">
-                <a href="mailto:ival.permana@email.com" className="group block">
+                <a
+                  href="mailto:ival.permana24@email.com"
+                  className="group block"
+                >
                   <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-tertiary block mb-3">
                     Email
                   </span>
                   <span className="text-2xl md:text-3xl lg:text-4xl font-sans text-primary group-hover:text-accent transition-colors duration-500 relative inline-block">
-                    ival.permana@email.com
+                    ival.permana24@email.com
                     <span className="absolute -bottom-2 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                   </span>
                 </a>
