@@ -7,13 +7,19 @@
     "border": "#27272a"
   },
   "files": [
+    "ai.svg",
+    "cloud.svg",
     "css.svg",
     "docker.svg",
     "flutter.svg",
     "html5.svg",
+    "java.svg",
+    "microservices.svg",
+    "network.svg",
     "nodejs.svg",
     "postgresql.svg",
-    "redis.svg"
+    "redis.svg",
+    "system-design.svg"
   ],
-  "note": "Kept official icons for Node.js, HTML/CSS, PostgreSQL, Redis, Docker, and Flutter (used for Dart/Flutter). Other placeholders removed; add manual SVGs to this folder when ready."
+  "note": "All skills icons updated to SVG format."
 }

@@ -7,6 +7,12 @@ import flutterIcon from "../assets/images/logos/flutter.svg";
 import postgresIcon from "../assets/images/logos/postgresql.svg";
 import redisIcon from "../assets/images/logos/redis.svg";
 import dockerIcon from "../assets/images/logos/docker.svg";
+import javaIcon from "../assets/images/logos/java.svg";
+import cloudIcon from "../assets/images/logos/cloud.svg";
+import networkIcon from "../assets/images/logos/network.svg";
+import microservicesIcon from "../assets/images/logos/microservices.svg";
+import aiIcon from "../assets/images/logos/ai.svg";
+import systemDesignIcon from "../assets/images/logos/system-design.svg";
 
 const iconMap = {
   "Node.js": nodejsIcon,
@@ -15,6 +21,12 @@ const iconMap = {
   PostgreSQL: postgresIcon,
   Redis: redisIcon,
   Docker: dockerIcon,
+  Java: javaIcon,
+  "Cloud Architecture": cloudIcon,
+  "Network Engineering": networkIcon,
+  Microservices: microservicesIcon,
+  "AI Integration": aiIcon,
+  "System Design": systemDesignIcon,
 };
 
 export default function Skills() {
