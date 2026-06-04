@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function ArchitectureDiagram() {
   const [activeNode, setActiveNode] = useState(null);
+  const { t } = useLanguage();
 
   const nodes = [
     { id: "react", label: "React.js + Vite", x: 400, y: 40, type: "frontend" },
@@ -50,13 +52,13 @@ export default function ArchitectureDiagram() {
   const getNode = (id) => nodes.find((n) => n.id === id);
 
   const nodeDescriptions = {
-    react: "Frontend SPA dengan Vite, Tailwind, Shadcn UI",
-    "firebase-auth": "Multi-role Authentication (Email, Google, 3 roles)",
-    firestore: "NoSQL Database — collections: users, reports, educations",
-    recaptcha: "Bot Protection untuk laporan tamu (guest report)",
-    cloudinary: "Media Storage untuk upload foto laporan & bukti",
-    leaflet: "Interactive Map & Hotspot Visualization",
-    nominatim: "Geocoding & Reverse Geocoding untuk lokasi laporan",
+    react: t("about.nodes.react"),
+    "firebase-auth": t("about.nodes.firebaseAuth"),
+    firestore: t("about.nodes.firestore"),
+    recaptcha: t("about.nodes.recaptcha"),
+    cloudinary: t("about.nodes.cloudinary"),
+    leaflet: t("about.nodes.leaflet"),
+    nominatim: t("about.nodes.nominatim"),
   };
 
   return (
@@ -160,7 +162,7 @@ export default function ArchitectureDiagram() {
             </span>
           ) : (
             <span className="text-tertiary">
-              Hover nodes untuk melihat arsitektur EcoTrace
+              {t("about.hoverNode")}
             </span>
           )}
         </div>

@@ -1,8 +1,12 @@
+import React from "react";
 import SectionReveal from "./SectionReveal";
 import ArchitectureDiagram from "./ArchitectureDiagram";
 import profilePhoto from "../assets/images/IvalV2.jpg";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="about"
@@ -15,17 +19,20 @@ export default function About() {
               <div className="mb-8 sm:mb-10 md:mb-12 w-full max-w-xs">
                 <img
                   src={profilePhoto}
-                  alt="Profile"
+                  alt="Ival Permana - Backend Developer & Cloud Engineer"
                   className="w-full h-auto rounded-sm border border-border hover:shadow-lg hover:shadow-accent/10 transition-all duration-500"
                 />
               </div>
               <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-tertiary block mb-6 sm:mb-8">
-                01 — Fokus Saya
+                {t("about.focus")}
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-primary leading-[1.05] text-balance">
-                Sistem di balik
-                <br />
-                layar.
+                {t("about.title").split("\n").map((line, i) => (
+                  <React.Fragment key={i}>
+                    {line}
+                    {i < t("about.title").split("\n").length - 1 && <br />}
+                  </React.Fragment>
+                ))}
               </h2>
             </div>
 
@@ -53,15 +60,11 @@ export default function About() {
                   </div>
 
                   <p className="text-secondary mb-4 pl-0 sm:pl-4">
-                    Backend developer yang fokus pada sistem di balik layar.
-                    Dari database, server, hingga infrastruktur digital yang
-                    membuat aplikasi berjalan lancar.
+                    {t("about.whoami")}
                   </p>
 
                   <p className="text-tertiary mb-6 pl-0 sm:pl-4">
-                    Setiap keputusan dibuat dengan memikirkan performa,
-                    keamanan, dan kemampuan untuk berkembang. Bukan hanya
-                    menulis kode, tetapi membuat sistem yang tahan lama.
+                    {t("about.philosophyTitle")}
                   </p>
 
                   <div className="mb-6">
@@ -71,8 +74,7 @@ export default function About() {
                   </div>
 
                   <p className="text-tertiary mb-2 pl-0 sm:pl-4">
-                    Menggunakan cara kerja yang terukur dan praktis. Memastikan
-                    semuanya bekerja dengan mulus tanpa hambatan.
+                    {t("about.philosophyBody")}
                   </p>
 
                   {/* Cursor berkedip di akhir */}
@@ -90,10 +92,10 @@ export default function About() {
           <div className="mt-20 sm:mt-28 md:mt-32 lg:mt-40">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6 mb-8 sm:mb-10">
               <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-tertiary">
-                02 — Arsitektur
+                {t("about.architectureLabel")}
               </span>
               <span className="font-mono text-[10px] sm:text-[11px] text-tertiary hidden md:block">
-                EcoTrace — React + Firebase Architecture
+                {t("about.architectureDesc")}
               </span>
             </div>
             <div className="border border-border bg-surface/30 rounded-sm overflow-hidden">

@@ -1,6 +1,10 @@
+import React from "react";
 import SectionReveal from "./SectionReveal";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Contact() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="contact"
@@ -11,16 +15,18 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-24">
             <div>
               <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-tertiary block mb-4 sm:mb-6">
-                05 — Hubungi Saya
+                {t("contact.label")}
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-sans font-medium tracking-tight text-primary leading-[0.95] mb-6 sm:mb-8 text-balance">
-                Mari kita
-                <br />
-                bekerja sama.
+                {t("contact.title").split("\n").map((line, i) => (
+                  <React.Fragment key={i}>
+                    {line}
+                    {i < t("contact.title").split("\n").length - 1 && <br />}
+                  </React.Fragment>
+                ))}
               </h2>
               <p className="text-sm sm:text-base md:text-lg text-secondary leading-relaxed max-w-md text-balance">
-                Saya terbuka untuk membantu proyek backend, infrastruktur cloud,
-                atau peran teknis lainnya.
+                {t("contact.desc")}
               </p>
             </div>
 
@@ -65,7 +71,7 @@ export default function Contact() {
                 <div className="grid grid-cols-2 gap-6 sm:gap-8 pt-8 sm:pt-10 border-t border-border">
                   <div>
                     <span className="font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.2em] text-tertiary block mb-1 sm:mb-2">
-                      Lokasi
+                      {t("contact.location")}
                     </span>
                     <span className="text-base sm:text-lg text-primary">
                       Indonesia
@@ -73,11 +79,11 @@ export default function Contact() {
                   </div>
                   <div>
                     <span className="font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.2em] text-tertiary block mb-1 sm:mb-2">
-                      Status
+                      {t("contact.status")}
                     </span>
                     <span className="text-base sm:text-lg text-primary flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                      <span>Terbuka</span>
+                      <span>{t("contact.statusVal")}</span>
                     </span>
                   </div>
                 </div>

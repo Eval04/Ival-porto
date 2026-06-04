@@ -1,23 +1,24 @@
+import React from "react";
 import SectionReveal from "./SectionReveal";
 import TextScramble from "./TextScramble";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Projects() {
+  const { t } = useLanguage();
+
   const projects = [
     {
-      title: "EcoTrace",
-      subtitle: "Smart Waste Tracking — TechSprint Innovation Cup 2026",
-      description:
-        "Platform pelaporan sampah berbasis web dengan 3 role (warga, admin, petugas). Saya mengembangkan sistem autentikasi multi-role dengan Firebase Auth, state management untuk alur laporan 7 status (pending → completed), integrasi peta interaktif Leaflet + OpenStreetMap, dan upload bukti foto via Cloudinary. Protected route berdasarkan role dengan React Router.",
+      title: t("projects.list.ecotrace.title"),
+      subtitle: t("projects.list.ecotrace.subtitle"),
+      description: t("projects.list.ecotrace.desc"),
       tags: ["React.js", "Firebase", "Tailwind", "Leaflet.js", "Cloudinary"],
       link: "https://ecotrace-id.vercel.app/",
       year: "2026",
     },
     {
-      title: "CodeTack",
-      subtitle:
-        "Platform Pembelajaran Interaktif — 🥈 2nd Place ICONFEST 3.0 National",
-      description:
-        "Platform edukasi coding interaktif untuk pemula yang meraih Juara 2 tingkat nasional di ICONFEST 3.0. Saya mengembangkan modul pembelajaran CSS lengkap — mulai dari selector, box model, flexbox, grid, hingga responsive design — dengan pendekatan hands-on. Berkontribusi pada live coding environment yang memungkinkan pengguna menulis dan melihat hasil kode secara real-time langsung di browser, tanpa perlu setup lokal.",
+      title: t("projects.list.codetack.title"),
+      subtitle: t("projects.list.codetack.subtitle"),
+      description: t("projects.list.codetack.desc"),
       tags: ["HTML", "CSS", "Tailwind", "JavaScript", "Live Coding"],
       link: "https://justrahyan.github.io/CodeTack/",
       year: "2025",
@@ -34,15 +35,19 @@ export default function Projects() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 sm:gap-6 mb-16 sm:mb-24 md:mb-32">
             <div>
               <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-tertiary block mb-4 sm:mb-6">
-                03 — Proyek Saya
+                {t("projects.label")}
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-primary leading-[1.05]">
-                Aplikasi &<br />
-                Sistem
+                {t("projects.title").split("\n").map((line, i) => (
+                  <React.Fragment key={i}>
+                    {line}
+                    {i < t("projects.title").split("\n").length - 1 && <br />}
+                  </React.Fragment>
+                ))}
               </h2>
             </div>
             <span className="hidden md:block font-mono text-[11px] text-tertiary">
-              {String(projects.length).padStart(2, "0")} Proyek
+              {String(projects.length).padStart(2, "0")} {t("projects.projectsCount")}
             </span>
           </div>
         </SectionReveal>
@@ -90,7 +95,7 @@ export default function Projects() {
                       className="group/link inline-flex items-center gap-2 sm:gap-3 font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors duration-300 py-2 px-2 rounded hover:bg-surface/30"
                     >
                       <span className="w-6 sm:w-8 h-px bg-border group-hover/link:w-10 sm:group-hover/link:w-14 group-hover/link:bg-accent transition-all duration-500 ease-out" />
-                      {project.link ? "Buka Aplikasi" : "Lihat Detail"}
+                      {project.link ? t("projects.openApp") : t("projects.viewDetail")}
                       <span className="text-tertiary ml-0.5 sm:ml-1">
                         {project.year}
                       </span>

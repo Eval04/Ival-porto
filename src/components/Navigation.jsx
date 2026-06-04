@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -11,10 +13,10 @@ export default function Navigation() {
   }, []);
 
   const links = [
-    { label: "Portofolio", href: "#projects" },
-    { label: "Tentang", href: "#about" },
-    { label: "Teknologi", href: "#skills" },
-    { label: "Kontak", href: "#contact" },
+    { label: t("nav.projects"), href: "#projects" },
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.skills"), href: "#skills" },
+    { label: t("nav.contact"), href: "#contact" },
   ];
 
   return (
@@ -41,6 +43,16 @@ export default function Navigation() {
               <span className="absolute bottom-0 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-500 ease-out" />
             </a>
           ))}
+
+          {/* Language Switcher */}
+          <button
+            onClick={() => setLang(lang === "id" ? "en" : "id")}
+            className="font-mono text-[10px] tracking-[0.1em] border border-border px-2.5 py-0.5 rounded-sm hover:border-accent hover:text-primary transition-all duration-300 flex items-center gap-1 cursor-pointer select-none ml-2"
+          >
+            <span className={lang === "id" ? "text-accent font-bold" : "text-secondary"}>ID</span>
+            <span className="text-zinc-700">/</span>
+            <span className={lang === "en" ? "text-accent font-bold" : "text-secondary"}>EN</span>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -76,6 +88,24 @@ export default function Navigation() {
                 <span className="absolute bottom-0 left-2 w-0 h-px bg-accent group-hover:w-[calc(100%-1rem)] transition-all duration-500 ease-out" />
               </a>
             ))}
+
+            {/* Mobile Language Switcher */}
+            <div className="py-3 px-2 border-t border-border mt-2">
+              <button
+                onClick={() => {
+                  setLang(lang === "id" ? "en" : "id");
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full flex justify-between items-center font-mono text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-primary transition-all duration-300 py-2 cursor-pointer"
+              >
+                <span>Language</span>
+                <span className="flex gap-2">
+                  <span className={lang === "id" ? "text-accent font-bold" : "text-secondary"}>ID</span>
+                  <span className="text-zinc-700">/</span>
+                  <span className={lang === "en" ? "text-accent font-bold" : "text-secondary"}>EN</span>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       )}

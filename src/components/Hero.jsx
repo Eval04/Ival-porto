@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Hero() {
   const [lines, setLines] = useState([]);
@@ -7,24 +8,33 @@ export default function Hero() {
   const [showCursor, setShowCursor] = useState(true);
   const [isTyping, setIsTyping] = useState(true);
   const terminalRef = useRef(null);
+  const { lang, t } = useLanguage();
 
   const terminalContent = [
     { type: "command", text: "whoami" },
     { type: "output", text: "IVAL PERMANA" },
     { type: "command", text: "cat role.txt" },
-    { type: "output", text: "Backend Developer & Cloud Engineer" },
+    { type: "output", text: t("hero.role") },
     { type: "command", text: "cat about.txt" },
     {
       type: "output",
-      text: "Mengarsitektur infrastruktur backend yang resilient dan observable. Fokus pada distributed systems, database optimization, dan cloud-native deployment.",
+      text: t("hero.about"),
     },
     { type: "command", text: "systemctl status availability" },
     {
       type: "output",
-      text: "● available — Open for new opportunities and collaborations.",
+      text: t("hero.availability"),
       status: "active",
     },
   ];
+
+  useEffect(() => {
+    // Reset typing animation when language changes
+    setLines([]);
+    setCurrentLine(0);
+    setCurrentChar(0);
+    setIsTyping(true);
+  }, [lang]);
 
   useEffect(() => {
     if (currentLine >= terminalContent.length) {
@@ -180,7 +190,7 @@ export default function Hero() {
           className="font-mono text-[8px] sm:text-[10px] uppercase tracking-[0.3em] text-tertiary"
           style={{ writingMode: "vertical-lr" }}
         >
-          Gulir
+          {t("hero.scroll")}
         </span>
       </div>
 

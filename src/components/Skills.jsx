@@ -1,4 +1,5 @@
 import SectionReveal from "./SectionReveal";
+import { useLanguage } from "../context/LanguageContext";
 
 import nodejsIcon from "../assets/images/logos/nodejs.svg";
 import html5Icon from "../assets/images/logos/html5.svg";
@@ -17,49 +18,51 @@ const iconMap = {
 };
 
 export default function Skills() {
+  const { t } = useLanguage();
+
   const categories = [
     {
-      title: "Bahasa Pemrograman",
+      title: t("skills.categories.languages"),
       items: [
-        { name: "Node.js", context: "Backend JavaScript" },
-        { name: "Java", context: "Untuk aplikasi besar" },
-        { name: "HTML / CSS", context: "Tampilan web" },
-        { name: "Dart / Flutter", context: "Aplikasi mobile" },
+        { name: "Node.js", context: t("skills.contexts.nodejs") },
+        { name: "Java", context: t("skills.contexts.java") },
+        { name: "HTML / CSS", context: t("skills.contexts.html") },
+        { name: "Dart / Flutter", context: t("skills.contexts.flutter") },
       ],
     },
     {
-      title: "Database & Storage",
+      title: t("skills.categories.database"),
       items: [
-        { name: "PostgreSQL", context: "Database yang stabil" },
-        { name: "Redis", context: "Cache dan real-time" },
-        { name: "Docker", context: "Kontainer aplikasi" },
+        { name: "PostgreSQL", context: t("skills.contexts.postgres") },
+        { name: "Redis", context: t("skills.contexts.redis") },
+        { name: "Docker", context: t("skills.contexts.docker") },
       ],
     },
     {
-      title: "Infrastruktur",
+      title: t("skills.categories.infra"),
       items: [
         {
           name: "Cloud Architecture",
-          context: "AWS / GCP untuk scalability",
+          context: t("skills.contexts.cloud"),
         },
         {
           name: "Network Engineering",
-          context: "Koneksi dan keamanan jaringan",
+          context: t("skills.contexts.network"),
         },
         {
           name: "Microservices",
-          context: "Sistem modular yang fleksibel",
+          context: t("skills.contexts.microservices"),
         },
       ],
     },
     {
-      title: "Tools & Lainnya",
+      title: t("skills.categories.tools"),
       items: [
         {
           name: "AI Integration",
-          context: "Integrasi AI / Machine Learning",
+          context: t("skills.contexts.ai"),
         },
-        { name: "System Design", context: "Desain sistem yang efisien" },
+        { name: "System Design", context: t("skills.contexts.systemDesign") },
       ],
     },
   ];
@@ -73,10 +76,10 @@ export default function Skills() {
         <SectionReveal>
           <div className="mb-16 sm:mb-20 md:mb-24 lg:mb-32">
             <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-tertiary block mb-4 sm:mb-6">
-              04 — Tools & Teknologi
+              {t("skills.label")}
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-sans font-medium tracking-tight text-primary leading-[1.05] max-w-3xl text-balance">
-              Tools yang saya gunakan untuk membangun aplikasi.
+              {t("skills.title")}
             </h2>
           </div>
         </SectionReveal>
