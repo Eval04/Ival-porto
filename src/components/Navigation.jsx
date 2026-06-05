@@ -26,9 +26,9 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
         <a
           href="#"
-          className="font-mono text-sm tracking-[0.2em] text-primary hover:text-accent transition-colors duration-300"
+          className="hover:opacity-80 transition-opacity duration-300"
         >
-          IVAL.PERMANA
+          <img src="/favicon.png" alt="Ival Permana" className="h-12 w-12 rounded" />
         </a>
 
         {/* Desktop Navigation */}
