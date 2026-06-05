@@ -14,12 +14,15 @@
     "flutter.svg",
     "html5.svg",
     "java.svg",
-    "microservices.svg",
-    "network.svg",
+    "microservices.png",
+    "network.png",
     "nodejs.svg",
     "postgresql.svg",
     "redis.svg",
-    "system-design.svg"
+    "system-design.png",
+    "php.svg",
+    "mysql.svg",
+    "python.svg"
   ],
   "note": "All skills icons updated to SVG format except Java which uses a custom PNG logo."
 }

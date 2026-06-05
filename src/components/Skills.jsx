@@ -9,10 +9,13 @@ import redisIcon from "../assets/images/logos/redis.svg";
 import dockerIcon from "../assets/images/logos/docker.svg";
 import javaIcon from "../assets/images/logos/java.svg";
 import cloudIcon from "../assets/images/logos/cloud.svg";
-import networkIcon from "../assets/images/logos/network.svg";
-import microservicesIcon from "../assets/images/logos/microservices.svg";
+import networkIcon from "../assets/images/logos/network.png";
+import microservicesIcon from "../assets/images/logos/microservices.png";
 import aiIcon from "../assets/images/logos/ai.svg";
-import systemDesignIcon from "../assets/images/logos/system-design.svg";
+import systemDesignIcon from "../assets/images/logos/system-design.png";
+import phpIcon from "../assets/images/logos/php.svg";
+import mysqlIcon from "../assets/images/logos/mysql.svg";
+import pythonIcon from "../assets/images/logos/python.svg";
 
 const iconMap = {
   "Node.js": nodejsIcon,
@@ -27,6 +30,9 @@ const iconMap = {
   Microservices: microservicesIcon,
   "AI Integration": aiIcon,
   "System Design": systemDesignIcon,
+  PHP: phpIcon,
+  "MySQL / XAMPP": mysqlIcon,
+  Python: pythonIcon,
 };
 
 export default function Skills() {
@@ -40,12 +46,15 @@ export default function Skills() {
         { name: "Java", context: t("skills.contexts.java") },
         { name: "HTML / CSS", context: t("skills.contexts.html") },
         { name: "Dart / Flutter", context: t("skills.contexts.flutter") },
+        { name: "PHP", context: t("skills.contexts.php") },
+        { name: "Python", context: t("skills.contexts.python") },
       ],
     },
     {
       title: t("skills.categories.database"),
       items: [
         { name: "PostgreSQL", context: t("skills.contexts.postgres") },
+        { name: "MySQL / XAMPP", context: t("skills.contexts.mysql") },
         { name: "Redis", context: t("skills.contexts.redis") },
         { name: "Docker", context: t("skills.contexts.docker") },
       ],
@@ -114,7 +123,11 @@ export default function Skills() {
                           <img
                             src={iconMap[item.name]}
                             alt={item.name + " icon"}
-                            className="w-8 h-8 object-contain"
+                            className={`w-8 h-8 object-contain${
+                              iconMap[item.name]?.endsWith?.(".png")
+                                ? " rounded-md bg-[#09090b]"
+                                : ""
+                            }`}
                           />
                           <span className="text-primary font-sans text-base sm:text-lg md:text-xl group-hover:text-accent transition-colors duration-300">
                             {item.name}

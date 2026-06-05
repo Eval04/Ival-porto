@@ -72,6 +72,9 @@ export const translations = {
         microservices: "Flexible modular systems",
         ai: "AI / Machine Learning integration",
         systemDesign: "Efficient system design",
+        php: "Server-side web development",
+        mysql: "Relational database & XAMPP",
+        python: "Scripting & automation",
       }
     },
     contact: {
@@ -159,6 +162,9 @@ export const translations = {
         microservices: "Sistem modular yang fleksibel",
         ai: "Integrasi AI / Machine Learning",
         systemDesign: "Desain sistem yang efisien",
+        php: "Pengembangan web sisi server",
+        mysql: "Database relasional & XAMPP",
+        python: "Scripting & otomasi",
       }
     },
     contact: {
