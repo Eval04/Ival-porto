@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import SectionReveal from "./SectionReveal";
 import TextScramble from "./TextScramble";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Projects() {
   const { t, lang } = useLanguage();
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const projects = [
     {
@@ -66,7 +67,11 @@ export default function Projects() {
         <div className="space-y-16 sm:space-y-20 md:space-y-24 lg:space-y-32">
           {projects.map((project, index) => (
             <SectionReveal key={project.title} delay={index * 100}>
-              <article className="group">
+              <article
+                className="group"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-start">
                   <div className="lg:col-span-1">
                     <span className="font-mono text-[10px] sm:text-[11px] text-tertiary">
@@ -80,7 +85,10 @@ export default function Projects() {
                         {project.subtitle}
                       </span>
                       <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-sans font-medium text-primary leading-tight mb-4 sm:mb-6">
-                        <TextScramble text={project.title} />
+                        <TextScramble
+                          text={project.title}
+                          trigger={hoveredIndex === index}
+                        />
                       </h3>
                     </div>
                     <p className="text-sm sm:text-base md:text-lg text-secondary leading-relaxed mb-6 sm:mb-8 max-w-2xl text-balance">

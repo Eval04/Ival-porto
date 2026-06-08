@@ -1,8 +1,8 @@
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 
 const CHARS = '!<>-_\\/[]{}—=+*^?#________'
 
-export default function TextScramble({ text, className = '' }) {
+export default function TextScramble({ text, className = '', trigger = false }) {
   const [display, setDisplay] = useState(text)
   const frameRef = useRef(null)
   const isScrambling = useRef(false)
@@ -37,6 +37,12 @@ export default function TextScramble({ text, className = '' }) {
 
     frameRef.current = requestAnimationFrame(update)
   }, [text])
+
+  useEffect(() => {
+    if (trigger) {
+      scramble()
+    }
+  }, [trigger, scramble])
 
   return (
     <span onMouseEnter={scramble} className={`cursor-default ${className}`}>

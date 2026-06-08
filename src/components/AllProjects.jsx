@@ -47,6 +47,8 @@ export default function AllProjects() {
     { key: "ai", label: t("projects.filterAI") },
   ];
 
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   const filteredProjects = projects.filter((project) =>
     project.categories.includes(activeFilter)
   );
@@ -93,7 +95,10 @@ export default function AllProjects() {
           {filters.map((filter) => (
             <button
               key={filter.key}
-              onClick={() => setActiveFilter(filter.key)}
+              onClick={() => {
+                setActiveFilter(filter.key);
+                setHoveredIndex(null);
+              }}
               className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-wider px-4 py-2 border rounded-sm transition-all duration-300 cursor-pointer ${
                 activeFilter === filter.key
                   ? "bg-primary border-primary text-void font-medium"
@@ -110,7 +115,11 @@ export default function AllProjects() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-16">
             {filteredProjects.map((project, index) => (
               <SectionReveal key={project.title} delay={index * 100}>
-                <article className="group flex flex-col h-full bg-surface/10 border border-border/30 rounded-md p-5 hover:border-border hover:bg-surface/25 transition-all duration-500">
+                <article
+                  className="group flex flex-col h-full bg-surface/10 border border-border/30 rounded-md p-5 hover:border-border hover:bg-surface/25 transition-all duration-500"
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
+                >
                   {/* Image Card */}
                   <a
                     href={project.link || "#"}
@@ -156,7 +165,10 @@ export default function AllProjects() {
 
                   {/* Title */}
                   <h3 className="text-xl sm:text-2xl font-sans font-medium text-primary mb-3">
-                    {project.title}
+                    <TextScramble
+                      text={project.title}
+                      trigger={hoveredIndex === index}
+                    />
                   </h3>
 
                   {/* Description */}
