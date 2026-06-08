@@ -97,7 +97,8 @@ export const translations = {
       statusVal: "Open",
     },
     footer: {
-      rights: "© 2026 Ival Permana. All systems operational.",
+      rights: "© 2026 Ival Permana.",
+      status: "All systems operational",
     }
   },
   id: {
@@ -198,7 +199,8 @@ export const translations = {
       statusVal: "Terbuka",
     },
     footer: {
-      rights: "© 2026 Ival Permana. Semua sistem beroperasional.",
+      rights: "© 2026 Ival Permana.",
+      status: "Semua sistem beroperasional",
     }
   }
 };

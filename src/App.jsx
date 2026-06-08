@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Cursor from "./components/Cursor";
 import AllProjects from "./components/AllProjects";
+import Terminal from "./components/Terminal";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("landing"); // 'landing' or 'projects'
@@ -46,6 +47,7 @@ function App() {
     <div className="bg-void text-primary min-h-screen selection:bg-zinc-800 selection:text-white relative">
       <div className="noise-overlay" aria-hidden="true" />
       <Cursor />
+      <Terminal />
 
       <Navigation currentPage={currentPage} />
       
