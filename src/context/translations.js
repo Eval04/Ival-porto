@@ -37,6 +37,12 @@ export const translations = {
       projectsCount: "Projects",
       openApp: "Open App",
       viewDetail: "View Details",
+      backHome: "Back to Home",
+      allProjects: "All Projects",
+      filterAll: "All",
+      filterFullstack: "Fullstack",
+      filterFrontend: "Frontend",
+      filterAI: "AI",
       list: {
         linkinbio: {
           title: "LinkinBio AI",
@@ -132,6 +138,12 @@ export const translations = {
       projectsCount: "Proyek",
       openApp: "Buka Aplikasi",
       viewDetail: "Lihat Detail",
+      backHome: "Kembali ke Beranda",
+      allProjects: "Semua Proyek",
+      filterAll: "Semua",
+      filterFullstack: "Fullstack",
+      filterFrontend: "Frontend",
+      filterAI: "AI",
       list: {
         linkinbio: {
           title: "LinkinBio AI",

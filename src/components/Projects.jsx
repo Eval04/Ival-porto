@@ -4,16 +4,16 @@ import TextScramble from "./TextScramble";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Projects() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   const projects = [
-
     {
       title: t("projects.list.ecotrace.title"),
       subtitle: t("projects.list.ecotrace.subtitle"),
       description: t("projects.list.ecotrace.desc"),
       tags: ["React.js", "Firebase", "Tailwind", "Leaflet.js", "Cloudinary"],
       link: "https://ecotrace-id.vercel.app/",
+      image: "/images/Ecotrace.png",
       year: "2026",
     },
     {
@@ -22,6 +22,7 @@ export default function Projects() {
       description: t("projects.list.codetack.desc"),
       tags: ["HTML", "CSS", "Tailwind", "JavaScript", "Live Coding"],
       link: "https://justrahyan.github.io/CodeTack/",
+      image: "/images/CodeTack.png",
       year: "2025",
     },
     {
@@ -30,6 +31,7 @@ export default function Projects() {
       description: t("projects.list.linkinbio.desc"),
       tags: ["Vue.js 3", "Laravel 11", "Tailwind v4", "Docker", "PostgreSQL", "Redis", "Groq API"],
       link: "https://link-bio-puce.vercel.app/",
+      image: "/images/LinkBio.png",
       year: "2026",
     },
   ];
@@ -72,7 +74,7 @@ export default function Projects() {
                     </span>
                   </div>
 
-                  <div className="lg:col-span-7">
+                  <div className="lg:col-span-6">
                     <div className="mb-4 sm:mb-6">
                       <span className="font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.2em] text-accent-warm mb-2 sm:mb-3 block">
                         {project.subtitle}
@@ -96,19 +98,53 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  <div className="lg:col-span-4 flex lg:justify-end items-start lg:pt-2 pt-2">
+                  <div className="lg:col-span-5 flex flex-col gap-4">
                     <a
                       href={project.link || "#"}
                       target={project.link ? "_blank" : undefined}
                       rel={project.link ? "noopener noreferrer" : undefined}
-                      className="group/link inline-flex items-center gap-2 sm:gap-3 font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors duration-300 py-2 px-2 rounded hover:bg-surface/30"
+                      className="block overflow-hidden rounded-md border border-border bg-void/50 aspect-video relative group/img cursor-pointer"
                     >
-                      <span className="w-6 sm:w-8 h-px bg-border group-hover/link:w-10 sm:group-hover/link:w-14 group-hover/link:bg-accent transition-all duration-500 ease-out" />
-                      {project.link ? t("projects.openApp") : t("projects.viewDetail")}
-                      <span className="text-tertiary ml-0.5 sm:ml-1">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover grayscale opacity-60 group-hover/img:grayscale-0 group-hover/img:opacity-100 group-hover/img:scale-[1.03] transition-all duration-700 ease-out"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-void/90 via-void/10 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 flex items-end p-4">
+                        <span className="font-mono text-[10px] uppercase tracking-widest text-primary flex items-center gap-2">
+                          {t("projects.openApp")}
+                          <svg
+                            className="w-3.5 h-3.5 text-primary"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+
+                    <div className="flex justify-between items-center mt-2">
+                      <a
+                        href={project.link || "#"}
+                        target={project.link ? "_blank" : undefined}
+                        rel={project.link ? "noopener noreferrer" : undefined}
+                        className="group/link inline-flex items-center gap-2 sm:gap-3 font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors duration-300 py-1"
+                      >
+                        <span className="w-4 sm:w-6 h-px bg-border group-hover/link:w-8 sm:group-hover/link:w-10 group-hover/link:bg-accent transition-all duration-500 ease-out" />
+                        {project.link ? t("projects.openApp") : t("projects.viewDetail")}
+                      </a>
+                      <span className="font-mono text-[9px] sm:text-[11px] text-tertiary">
                         {project.year}
                       </span>
-                    </a>
+                    </div>
                   </div>
                 </div>
 
@@ -119,6 +155,33 @@ export default function Projects() {
             </SectionReveal>
           ))}
         </div>
+
+        {/* View All Projects Button */}
+        <SectionReveal delay={200}>
+          <div className="mt-16 sm:mt-24 md:mt-32 flex justify-center">
+            <a
+              href="#/all-projects"
+              className="group relative inline-flex items-center justify-center border border-border px-8 py-4 rounded-sm font-mono text-[11px] uppercase tracking-[0.2em] text-primary overflow-hidden transition-all duration-300 hover:border-accent hover:text-void bg-transparent cursor-pointer"
+            >
+              <span className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] -z-10" />
+              {lang === "id" ? "Lihat Semua Proyek" : "View All Projects"}
+              <svg
+                className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
+          </div>
+        </SectionReveal>
       </div>
     </section>
   );
