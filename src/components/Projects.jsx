@@ -107,37 +107,13 @@ export default function Projects() {
                   </div>
 
                   <div className="lg:col-span-5 flex flex-col gap-4">
-                    <a
-                      href={project.link || "#"}
-                      target={project.link ? "_blank" : undefined}
-                      rel={project.link ? "noopener noreferrer" : undefined}
-                      className="block overflow-hidden rounded-md border border-border bg-void/50 aspect-video relative group/img cursor-pointer"
-                    >
+                    <div className="block overflow-hidden rounded-md border border-border bg-void/50 aspect-video relative group/img">
                       <img
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover grayscale opacity-60 group-hover/img:grayscale-0 group-hover/img:opacity-100 group-hover/img:scale-[1.03] transition-all duration-700 ease-out"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-void/90 via-void/10 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 flex items-end p-4">
-                        <span className="font-mono text-[10px] uppercase tracking-widest text-primary flex items-center gap-2">
-                          {t("projects.openApp")}
-                          <svg
-                            className="w-3.5 h-3.5 text-primary"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                    </a>
+                    </div>
 
                     <div className="flex justify-between items-center mt-2">
                       <a

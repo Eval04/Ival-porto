@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Cursor from "./components/Cursor";
 import AllProjects from "./components/AllProjects";
 import Terminal from "./components/Terminal";
+import Playground from "./components/Playground";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("landing"); // 'landing' or 'projects'
@@ -17,6 +18,9 @@ function App() {
     const handleHashChange = () => {
       if (window.location.hash === "#/all-projects") {
         setCurrentPage("projects");
+        window.scrollTo({ top: 0, behavior: "instant" });
+      } else if (window.location.hash === "#/playground") {
+        setCurrentPage("playground");
         window.scrollTo({ top: 0, behavior: "instant" });
       } else {
         setCurrentPage("landing");
@@ -32,7 +36,7 @@ function App() {
   useEffect(() => {
     if (currentPage === "landing" && window.location.hash) {
       const id = window.location.hash.replace("#", "");
-      if (id && id !== "/all-projects") {
+      if (id && id !== "/all-projects" && id !== "/playground") {
         setTimeout(() => {
           const element = document.getElementById(id);
           if (element) {
@@ -53,6 +57,8 @@ function App() {
       
       {currentPage === "projects" ? (
         <AllProjects />
+      ) : currentPage === "playground" ? (
+        <Playground />
       ) : (
         <main>
           <Hero />

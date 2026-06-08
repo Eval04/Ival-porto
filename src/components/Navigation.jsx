@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
-export default function Navigation() {
+export default function Navigation({ currentPage }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { lang, setLang, t } = useLanguage();
@@ -17,6 +17,7 @@ export default function Navigation() {
     { label: t("nav.about"), href: "#about" },
     { label: t("nav.skills"), href: "#skills" },
     { label: t("nav.contact"), href: "#contact" },
+    { label: t("nav.playground"), href: "#/playground" },
   ];
 
   return (

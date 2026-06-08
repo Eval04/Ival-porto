@@ -5,6 +5,7 @@ export const translations = {
       about: "About",
       skills: "Skills",
       contact: "Contact",
+      playground: "Playground",
     },
     hero: {
       role: "Backend Developer & Cloud Engineer",
@@ -107,6 +108,7 @@ export const translations = {
       about: "Tentang",
       skills: "Teknologi",
       contact: "Kontak",
+      playground: "Playground",
     },
     hero: {
       role: "Backend Developer & Cloud Engineer",

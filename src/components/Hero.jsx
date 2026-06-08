@@ -124,15 +124,15 @@ export default function Hero() {
                   </div>
                 ) : (
                   <div className="pl-0 sm:pl-4">
-                    <span
-                      className={
-                        index === 1
-                          ? "text-primary text-xl sm:text-2xl md:text-3xl font-medium tracking-tight"
-                          : "text-secondary"
-                      }
-                    >
-                      {line.typed}
-                    </span>
+                    {index === 1 ? (
+                      <h1 className="text-primary text-xl sm:text-2xl md:text-3xl font-medium tracking-tight inline-block">
+                        {line.typed}
+                      </h1>
+                    ) : (
+                      <span className="text-secondary">
+                        {line.typed}
+                      </span>
+                    )}
                   </div>
                 )}
               </div>
@@ -152,18 +152,23 @@ export default function Hero() {
                   </>
                 ) : (
                   <div className="pl-0 sm:pl-4">
-                    <span
-                      className={
-                        currentLine === 1
-                          ? "text-primary text-xl sm:text-2xl md:text-3xl font-medium tracking-tight"
-                          : "text-secondary"
-                      }
-                    >
-                      {getCurrentTypingText()}
-                    </span>
-                    <span
-                      className={`inline-block w-2 sm:w-2.5 h-4 sm:h-5 bg-primary ml-0.5 ${showCursor ? "opacity-100" : "opacity-0"} transition-opacity duration-75`}
-                    />
+                    {currentLine === 1 ? (
+                      <h1 className="text-primary text-xl sm:text-2xl md:text-3xl font-medium tracking-tight inline-block">
+                        {getCurrentTypingText()}
+                        <span
+                          className={`inline-block w-2 sm:w-2.5 h-4 sm:h-5 bg-primary ml-0.5 ${showCursor ? "opacity-100" : "opacity-0"} transition-opacity duration-75`}
+                        />
+                      </h1>
+                    ) : (
+                      <>
+                        <span className="text-secondary">
+                          {getCurrentTypingText()}
+                        </span>
+                        <span
+                          className={`inline-block w-2 sm:w-2.5 h-4 sm:h-5 bg-primary ml-0.5 ${showCursor ? "opacity-100" : "opacity-0"} transition-opacity duration-75`}
+                        />
+                      </>
+                    )}
                   </div>
                 )}
               </div>
