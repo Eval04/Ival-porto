@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Replace with your actual custom domain if you have one
-Sitemap: https://eval04.github.io/sitemap.xml
+Sitemap: https://ivalpermana.my.id/sitemap.xml
