@@ -38,6 +38,11 @@ export const translations = {
       openApp: "Open App",
       viewDetail: "View Details",
       list: {
+        linkinbio: {
+          title: "LinkinBio AI",
+          subtitle: "AI-Enhanced Link-in-Bio Platform — Production Ready",
+          desc: "A web-based link-in-bio platform to create personalized profile pages with custom links, themes, and analytics. It features generative AI to help users optimize their profiles through automatic bio generation, layout recommendations, SEO analysis, and natural language visitor insights.",
+        },
         ecotrace: {
           title: "EcoTrace",
           subtitle: "Smart Waste Tracking — TechSprint Innovation Cup 2026",
@@ -128,6 +133,11 @@ export const translations = {
       openApp: "Buka Aplikasi",
       viewDetail: "Lihat Detail",
       list: {
+        linkinbio: {
+          title: "LinkinBio AI",
+          subtitle: "AI-Enhanced Link-in-Bio Platform — Production Ready",
+          desc: "Platform link-in-bio berbasis web untuk membuat halaman profil personal dengan kustomisasi link, tema, dan analitik. Dilengkapi teknologi generative AI untuk mengoptimalkan profil lewat pembuat bio otomatis, rekomendasi layout, analisis SEO, serta ringkasan insight pengunjung.",
+        },
         ecotrace: {
           title: "EcoTrace",
           subtitle: "Smart Waste Tracking — TechSprint Innovation Cup 2026",

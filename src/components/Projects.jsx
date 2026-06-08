@@ -7,6 +7,7 @@ export default function Projects() {
   const { t } = useLanguage();
 
   const projects = [
+
     {
       title: t("projects.list.ecotrace.title"),
       subtitle: t("projects.list.ecotrace.subtitle"),
@@ -22,6 +23,14 @@ export default function Projects() {
       tags: ["HTML", "CSS", "Tailwind", "JavaScript", "Live Coding"],
       link: "https://justrahyan.github.io/CodeTack/",
       year: "2025",
+    },
+    {
+      title: t("projects.list.linkinbio.title"),
+      subtitle: t("projects.list.linkinbio.subtitle"),
+      description: t("projects.list.linkinbio.desc"),
+      tags: ["Vue.js 3", "Laravel 11", "Tailwind v4", "Docker", "PostgreSQL", "Redis", "Groq API"],
+      link: "https://link-bio-puce.vercel.app/",
+      year: "2026",
     },
   ];
 
