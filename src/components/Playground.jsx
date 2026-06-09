@@ -836,10 +836,10 @@ border-radius: ${glassRadius}px;`;
   };
 
   return (
-    <section className="pt-32 pb-24 px-4 sm:px-6 md:px-12 lg:px-24 bg-void min-h-screen relative select-none">
+    <section className="pt-24 pb-16 sm:pt-32 sm:pb-24 px-4 sm:px-6 md:px-12 lg:px-24 bg-void min-h-screen relative select-none">
       <div className="max-w-7xl mx-auto">
         {/* Back Button */}
-        <div className="mb-12">
+        <div className="mb-8 sm:mb-12">
           <a
             href="#projects"
             className="group inline-flex items-center gap-2 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors duration-300"
@@ -863,14 +863,14 @@ border-radius: ${glassRadius}px;`;
         </div>
 
         {/* Title */}
-        <div className="mb-16">
-          <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-tertiary block mb-4">
+        <div className="mb-10 sm:mb-16">
+          <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-tertiary block mb-3 sm:mb-4">
             {lang === "id" ? "LAB INTERAKTIF" : "SANDBOX PLAYGROUND"}
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-sans font-medium tracking-tight text-primary leading-none">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-sans font-medium tracking-tight text-primary leading-none">
             <TextScramble text={lang === "id" ? "Mainan Developer" : "Dev Playground"} />
           </h1>
-          <p className="text-sm sm:text-base text-secondary mt-6 max-w-2xl text-balance">
+          <p className="text-sm sm:text-base text-secondary mt-4 sm:mt-6 max-w-2xl text-balance">
             {lang === "id"
               ? "Koleksi simulasi interaktif sederhana yang mendemonstrasikan konsep backend, arsitektur, dan keamanan sistem."
               : "A collection of simple interactive sandboxes demonstrating backend systems, architecture, and network security concepts."}
@@ -878,10 +878,10 @@ border-radius: ${glassRadius}px;`;
         </div>
 
         {/* Widgets Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Widget 1: Cache Flow Simulator */}
           <SectionReveal>
-            <div className="border border-border bg-surface/10 rounded-md p-6 h-[460px] flex flex-col justify-between">
+            <div className="border border-border bg-surface/10 rounded-md p-4 sm:p-6 min-h-[460px] flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-baseline mb-4">
                   <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent-warm">
@@ -955,7 +955,7 @@ border-radius: ${glassRadius}px;`;
                 {/* Console Logs */}
                 <div
                   ref={consoleRef}
-                  className="bg-void/80 border border-border p-4 rounded-sm h-28 overflow-y-auto mb-4 font-mono text-[9px] text-zinc-400 space-y-1"
+                  className="bg-void/80 border border-border p-3 sm:p-4 rounded-sm h-20 sm:h-28 overflow-y-auto mb-4 font-mono text-[9px] sm:text-[10px] text-zinc-400 space-y-1"
                 >
                   {simLogs.length === 0 ? (
                     <div className="text-tertiary italic">
@@ -967,12 +967,12 @@ border-radius: ${glassRadius}px;`;
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                 <div className="flex border border-border rounded-sm overflow-hidden flex-grow">
                   <button
                     disabled={simState !== "idle"}
                     onClick={() => setIsHitMode(true)}
-                    className={`flex-1 font-mono text-[10px] uppercase py-2 tracking-wider transition-colors cursor-pointer disabled:cursor-not-allowed ${
+                    className={`flex-1 font-mono text-[11px] sm:text-[10px] uppercase py-2 tracking-wider transition-colors cursor-pointer disabled:cursor-not-allowed ${
                       isHitMode ? "bg-primary text-void font-bold" : "text-secondary hover:bg-surface/50"
                     }`}
                   >
@@ -981,7 +981,7 @@ border-radius: ${glassRadius}px;`;
                   <button
                     disabled={simState !== "idle"}
                     onClick={() => setIsHitMode(false)}
-                    className={`flex-1 font-mono text-[10px] uppercase py-2 tracking-wider transition-colors cursor-pointer disabled:cursor-not-allowed ${
+                    className={`flex-1 font-mono text-[11px] sm:text-[10px] uppercase py-2 tracking-wider transition-colors cursor-pointer disabled:cursor-not-allowed ${
                       !isHitMode ? "bg-primary text-void font-bold" : "text-secondary hover:bg-surface/50"
                     }`}
                   >
@@ -991,7 +991,7 @@ border-radius: ${glassRadius}px;`;
                 <button
                   onClick={startCacheSimulation}
                   disabled={simState !== "idle"}
-                  className="bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[10px] uppercase tracking-widest py-2.5 px-6 rounded-sm transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                  className="bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[11px] sm:text-[10px] uppercase tracking-widest py-2.5 px-6 rounded-sm transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {lang === "id" ? "Jalankan Request" : "Send Request"}
                 </button>
@@ -1001,7 +1001,7 @@ border-radius: ${glassRadius}px;`;
 
           {/* Widget 2: Rate Limiter Game */}
           <SectionReveal>
-            <div className="border border-border bg-surface/10 rounded-md p-6 h-[460px] flex flex-col justify-between relative overflow-hidden">
+            <div className="border border-border bg-surface/10 rounded-md p-4 sm:p-6 min-h-[460px] flex flex-col justify-between overflow-hidden">
               {isBlocked && (
                 <div className="absolute inset-0 bg-void/90 z-30 flex flex-col items-center justify-center p-6 text-center animate-in fade-in duration-300">
                   <div className="w-12 h-12 rounded-full border border-red-500/40 flex items-center justify-center text-red-500 mb-4 animate-bounce">
@@ -1047,7 +1047,7 @@ border-radius: ${glassRadius}px;`;
                   </div>
                 </div>
 
-                <div className="bg-void/80 border border-border p-4 rounded-sm h-[142px] overflow-y-auto mb-4 font-mono text-[9px] space-y-1">
+                <div className="bg-void/80 border border-border p-3 sm:p-4 rounded-sm h-24 sm:h-[142px] overflow-y-auto mb-4 font-mono text-[9px] sm:text-[10px] space-y-1">
                   {rateLogs.length === 0 ? (
                     <div className="text-tertiary italic">
                       {lang === "id" ? "[Klik tombol di bawah untuk kirim request]" : "[Click button below to send requests]"}
@@ -1067,7 +1067,7 @@ border-radius: ${glassRadius}px;`;
 
               <button
                 onClick={handleRateRequest}
-                className="w-full bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[11px] uppercase tracking-widest py-3 rounded-sm transition-all duration-300 cursor-pointer"
+                className="w-full bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[11px] sm:text-[11px] uppercase tracking-widest py-3 rounded-sm transition-all duration-300 cursor-pointer"
               >
                 {lang === "id" ? "KIRIM REQUEST API" : "SEND API REQUEST"}
               </button>
@@ -1076,7 +1076,7 @@ border-radius: ${glassRadius}px;`;
 
           {/* Widget 3: Password Hash & Bcrypt Simulator */}
           <SectionReveal>
-            <div className="border border-border bg-surface/10 rounded-md p-6 h-[460px] flex flex-col justify-between">
+            <div className="border border-border bg-surface/10 rounded-md p-4 sm:p-6 min-h-[460px] flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-baseline mb-4">
                   <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent-warm">
@@ -1098,7 +1098,7 @@ border-radius: ${glassRadius}px;`;
 
                 {/* Password Input */}
                 <div className="flex flex-col gap-1 mb-4">
-                  <label className="font-mono text-[9px] uppercase text-tertiary">Password Input</label>
+                  <label className="font-mono text-[10px] sm:text-[9px] uppercase text-tertiary">Password Input</label>
                   <input
                     type="text"
                     value={inputPassword}
@@ -1110,7 +1110,7 @@ border-radius: ${glassRadius}px;`;
                 </div>
 
                 {/* Hashes Output */}
-                <div className="space-y-3 font-mono text-[9px] mb-4">
+                <div className="space-y-3 font-mono text-[10px] sm:text-[9px] mb-4">
                   <div className="bg-void/50 border border-border p-2.5 rounded-sm overflow-x-auto">
                     <span className="text-orange-400 font-bold block mb-1">SHA-256 HASH (Static):</span>
                     <span className="text-secondary break-all select-all">{sha256Hash || "No input"}</span>
@@ -1126,7 +1126,7 @@ border-radius: ${glassRadius}px;`;
               <div className="border-t border-border pt-4">
                 <div className="flex flex-col sm:flex-row gap-4 items-end">
                   <div className="flex flex-col gap-1 flex-grow w-full">
-                    <label className="font-mono text-[9px] uppercase text-tertiary">Verify Password (bcrypt.compare)</label>
+                    <label className="font-mono text-[10px] sm:text-[9px] uppercase text-tertiary">Verify Password (bcrypt.compare)</label>
                     <input
                       type="password"
                       value={verifyPassword}
@@ -1151,7 +1151,7 @@ border-radius: ${glassRadius}px;`;
 
           {/* Widget 4: CSS Glassmorphism Generator */}
           <SectionReveal>
-            <div className="border border-border bg-surface/10 rounded-md p-6 h-[460px] flex flex-col justify-between">
+            <div className="border border-border bg-surface/10 rounded-md p-4 sm:p-6 min-h-[460px] flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-baseline mb-4">
                   <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent-warm">
@@ -1187,7 +1187,7 @@ border-radius: ${glassRadius}px;`;
                 </div>
 
                 {/* Sliders Grid */}
-                <div className="grid grid-cols-2 gap-x-4 gap-y-2 font-mono text-[9px] text-secondary">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-3 font-mono text-[10px] sm:text-[9px] text-secondary">
                   <div className="flex flex-col gap-1">
                     <div className="flex justify-between">
                       <span className="uppercase text-tertiary">Opacity</span>
@@ -1251,13 +1251,13 @@ border-radius: ${glassRadius}px;`;
               </div>
 
               {/* CSS Code Snippet Copy */}
-              <div className="border-t border-border pt-4 flex gap-3 items-center">
-                <pre className="bg-void/80 border border-border rounded-sm p-2 text-[8px] font-mono text-zinc-500 overflow-x-auto flex-grow h-14 select-all leading-normal">
+              <div className="border-t border-border pt-4 flex flex-col sm:flex-row gap-3 sm:items-center">
+                <pre className="bg-void/80 border border-border rounded-sm p-2 text-[9px] sm:text-[8px] font-mono text-zinc-500 overflow-x-auto flex-grow min-h-14 sm:h-14 select-all leading-normal">
                   {getGlassCSSCode()}
                 </pre>
                 <button
                   onClick={handleCopyCSS}
-                  className="bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[9px] uppercase tracking-wider py-4 px-4 rounded-sm transition-all duration-300 cursor-pointer shrink-0"
+                  className="bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[10px] sm:text-[9px] uppercase tracking-wider py-3 sm:py-4 px-4 rounded-sm transition-all duration-300 cursor-pointer shrink-0 w-full sm:w-auto"
                 >
                   {copiedCSS ? "Copied!" : "Copy CSS"}
                 </button>
@@ -1267,7 +1267,7 @@ border-radius: ${glassRadius}px;`;
 
           {/* Widget 5: HTML/CSS Live Sandbox */}
           <SectionReveal>
-            <div className="border border-border bg-surface/10 rounded-md p-6 h-[460px] flex flex-col justify-between">
+            <div className="border border-border bg-surface/10 rounded-md p-4 sm:p-6 min-h-[460px] flex flex-col justify-between">
               <div>
                 <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent-warm mb-4">
                   05 // HTML/CSS Live Sandbox
@@ -1278,23 +1278,23 @@ border-radius: ${glassRadius}px;`;
                     : "Write inline HTML/CSS markup and watch it render instantly inside a secured sandbox browser container."}
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <div className="flex flex-col gap-1">
-                    <label className="font-mono text-[9px] uppercase text-tertiary">HTML & CSS Editor</label>
+                    <label className="font-mono text-[10px] sm:text-[9px] uppercase text-tertiary">HTML & CSS Editor</label>
                     <textarea
                       value={htmlCode}
                       onChange={(e) => setHtmlCode(e.target.value)}
-                      className="bg-void border border-border rounded-sm p-3.5 text-[9px] font-mono text-secondary h-44 outline-none focus:border-accent resize-none select-text"
+                      className="bg-void border border-border rounded-sm p-3 sm:p-3.5 text-[10px] sm:text-[9px] font-mono text-secondary h-36 sm:h-44 outline-none focus:border-accent resize-none select-text"
                       spellCheck="false"
                       placeholder="Type HTML here..."
                     />
                   </div>
 
                   <div className="flex flex-col gap-1">
-                    <label className="font-mono text-[9px] uppercase text-tertiary">Live Render Output</label>
+                    <label className="font-mono text-[10px] sm:text-[9px] uppercase text-tertiary">Live Render Output</label>
                     <iframe
                       srcDoc={getSandboxSrcDoc()}
-                      className="w-full h-44 bg-zinc-950 border border-border rounded-sm overflow-hidden"
+                      className="w-full h-36 sm:h-44 bg-zinc-950 border border-border rounded-sm overflow-hidden"
                       sandbox="allow-scripts"
                       title="HTML Preview Sandbox"
                     />
@@ -1345,7 +1345,7 @@ border-radius: ${glassRadius}px;`;
 
           {/* Widget 6: Base64 / URL Encoder & Decoder [NEW] */}
           <SectionReveal>
-            <div className="border border-border bg-surface/10 rounded-md p-6 h-[460px] flex flex-col justify-between">
+            <div className="border border-border bg-surface/10 rounded-md p-4 sm:p-6 min-h-[460px] flex flex-col justify-between">
               <div>
                 <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent-warm mb-4">
                   06 // Base64 & URL Codec
@@ -1373,11 +1373,11 @@ border-radius: ${glassRadius}px;`;
 
                   {/* Input area */}
                   <div className="flex flex-col gap-1">
-                    <label className="font-mono text-[9px] uppercase text-tertiary">Input String</label>
+                    <label className="font-mono text-[10px] sm:text-[9px] uppercase text-tertiary">Input String</label>
                     <textarea
                       value={codecInput}
                       onChange={(e) => setCodecInput(e.target.value)}
-                      className="bg-void border border-border rounded-sm p-3.5 text-xs font-mono text-secondary h-20 outline-none focus:border-accent resize-none select-text"
+                      className="bg-void border border-border rounded-sm p-3 sm:p-3.5 text-xs font-mono text-secondary h-16 sm:h-20 outline-none focus:border-accent resize-none select-text"
                       spellCheck="false"
                       placeholder="Type text to convert..."
                     />
@@ -1385,11 +1385,11 @@ border-radius: ${glassRadius}px;`;
 
                   {/* Output area */}
                   <div className="flex flex-col gap-1">
-                    <label className="font-mono text-[9px] uppercase text-tertiary">Codec Output</label>
+                    <label className="font-mono text-[10px] sm:text-[9px] uppercase text-tertiary">Codec Output</label>
                     <textarea
                       value={codecOutput}
                       readOnly
-                      className="bg-void/50 border border-border rounded-sm p-3.5 text-xs font-mono text-primary h-20 outline-none resize-none select-all"
+                      className="bg-void/50 border border-border rounded-sm p-3 sm:p-3.5 text-xs font-mono text-primary h-16 sm:h-20 outline-none resize-none select-all"
                       placeholder="Output will appear here..."
                     />
                   </div>
@@ -1400,7 +1400,7 @@ border-radius: ${glassRadius}px;`;
 
           {/* Widget 7: Regex Pattern Matcher [NEW] */}
           <SectionReveal>
-            <div className="border border-border bg-surface/10 rounded-md p-6 h-[460px] flex flex-col justify-between">
+            <div className="border border-border bg-surface/10 rounded-md p-4 sm:p-6 min-h-[460px] flex flex-col justify-between">
               <div>
                 <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent-warm mb-4">
                   07 // Regex Tester & Matcher
@@ -1414,7 +1414,7 @@ border-radius: ${glassRadius}px;`;
                 <div className="flex flex-col gap-3">
                   {/* Pattern input */}
                   <div className="flex flex-col gap-1">
-                    <label className="font-mono text-[9px] uppercase text-tertiary">Regex Pattern (RegExp)</label>
+                    <label className="font-mono text-[10px] sm:text-[9px] uppercase text-tertiary">Regex Pattern (RegExp)</label>
                     <input
                       type="text"
                       value={regexPattern}
@@ -1425,7 +1425,7 @@ border-radius: ${glassRadius}px;`;
                       placeholder="e.g. \\b[A-Z]\\w+\\b"
                     />
                     {regexError && (
-                      <span className="font-mono text-[8px] text-red-400 mt-1">
+                      <span className="font-mono text-[9px] sm:text-[8px] text-red-400 mt-1">
                         Syntax Error: {regexError}
                       </span>
                     )}
@@ -1433,21 +1433,21 @@ border-radius: ${glassRadius}px;`;
 
                   {/* Source text input */}
                   <div className="flex flex-col gap-1">
-                    <label className="font-mono text-[9px] uppercase text-tertiary">Source Text</label>
+                    <label className="font-mono text-[10px] sm:text-[9px] uppercase text-tertiary">Source Text</label>
                     <textarea
                       value={regexText}
                       onChange={(e) => setRegexText(e.target.value)}
-                      className="bg-void border border-border rounded-sm p-2.5 text-xs font-mono text-secondary h-20 outline-none focus:border-accent resize-none select-text"
+                      className="bg-void border border-border rounded-sm p-2.5 text-xs font-mono text-secondary h-16 sm:h-20 outline-none focus:border-accent resize-none select-text"
                       spellCheck="false"
                     />
                   </div>
 
                   {/* Matches Found */}
                   <div className="flex flex-col gap-1">
-                    <label className="font-mono text-[9px] uppercase text-tertiary">
+                    <label className="font-mono text-[10px] sm:text-[9px] uppercase text-tertiary">
                       Matches Found ({regexMatches.length})
                     </label>
-                    <div className="bg-void/50 border border-border p-2.5 rounded-sm h-14 overflow-y-auto font-mono text-[9px] text-emerald-400 flex flex-wrap gap-2">
+                    <div className="bg-void/50 border border-border p-2.5 rounded-sm min-h-12 sm:h-14 overflow-y-auto font-mono text-[10px] sm:text-[9px] text-emerald-400 flex flex-wrap gap-2">
                       {regexMatches.length === 0 ? (
                         <span className="text-tertiary italic">No matches</span>
                       ) : (
@@ -1466,7 +1466,7 @@ border-radius: ${glassRadius}px;`;
 
           {/* Widget 8: Keycode Keyboard Event Listener [NEW] */}
           <SectionReveal>
-            <div className="border border-border bg-surface/10 rounded-md p-6 h-[460px] flex flex-col justify-between">
+            <div className="border border-border bg-surface/10 rounded-md p-4 sm:p-6 min-h-[460px] flex flex-col justify-between">
               <div>
                 <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent-warm mb-4">
                   08 // Keyboard Event Inspector
@@ -1478,36 +1478,36 @@ border-radius: ${glassRadius}px;`;
                 </p>
 
                 {lastKey ? (
-                  <div className="flex flex-col gap-4 bg-void/30 p-4 border border-border/80 rounded-sm font-mono">
-                    <div className="flex flex-col items-center justify-center py-4 border-b border-border/50">
-                      <span className="text-tertiary text-[9px] uppercase tracking-wider mb-2">giant keycode display</span>
-                      <span className="text-5xl font-bold text-primary animate-pulse">{lastKey.keyCode}</span>
+                  <div className="flex flex-col gap-4 bg-void/30 p-3 sm:p-4 border border-border/80 rounded-sm font-mono">
+                    <div className="flex flex-col items-center justify-center py-3 sm:py-4 border-b border-border/50">
+                      <span className="text-tertiary text-[10px] sm:text-[9px] uppercase tracking-wider mb-2">giant keycode display</span>
+                      <span className="text-4xl sm:text-5xl font-bold text-primary animate-pulse">{lastKey.keyCode}</span>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-y-2 text-[10px] text-secondary">
-                      <div className="flex justify-between pr-4 border-r border-border/30">
-                        <span className="text-tertiary uppercase text-[8px]">e.key</span>
+                    <div className="grid grid-cols-2 gap-y-2 sm:gap-y-3 text-[11px] sm:text-[10px] text-secondary">
+                      <div className="flex justify-between pr-3 sm:pr-4 border-r border-border/30">
+                        <span className="text-tertiary uppercase text-[9px] sm:text-[8px]">e.key</span>
                         <span className="text-primary font-bold">{lastKey.key}</span>
                       </div>
-                      <div className="flex justify-between pl-4">
-                        <span className="text-tertiary uppercase text-[8px]">e.code</span>
+                      <div className="flex justify-between pl-3 sm:pl-4">
+                        <span className="text-tertiary uppercase text-[9px] sm:text-[8px]">e.code</span>
                         <span className="text-primary font-bold">{lastKey.code}</span>
                       </div>
-                      <div className="flex justify-between pr-4 border-r border-border/30 mt-1">
-                        <span className="text-tertiary uppercase text-[8px]">Shift / Ctrl / Alt</span>
+                      <div className="flex justify-between pr-3 sm:pr-4 border-r border-border/30 mt-1">
+                        <span className="text-tertiary uppercase text-[9px] sm:text-[8px]">Shift / Ctrl / Alt</span>
                         <span className="text-zinc-400">
                           {lastKey.shift ? "S " : ""}{lastKey.ctrl ? "C " : ""}{lastKey.alt ? "A" : ""}
                           {!lastKey.shift && !lastKey.ctrl && !lastKey.alt ? "None" : ""}
                         </span>
                       </div>
-                      <div className="flex justify-between pl-4 mt-1">
-                        <span className="text-tertiary uppercase text-[8px]">Event Type</span>
+                      <div className="flex justify-between pl-3 sm:pl-4 mt-1">
+                        <span className="text-tertiary uppercase text-[9px] sm:text-[8px]">Event Type</span>
                         <span className="text-zinc-500 font-bold">keydown</span>
                       </div>
                     </div>
                   </div>
                 ) : (
-                  <div className="h-56 bg-void/50 border border-border border-dashed rounded-md flex flex-col items-center justify-center p-6 text-center">
+                  <div className="h-44 sm:h-56 bg-void/50 border border-border border-dashed rounded-md flex flex-col items-center justify-center p-6 text-center">
                     <span className="text-tertiary text-xs font-mono animate-pulse">
                       {lang === "id" ? "[Tekan sembarang tombol untuk menguji]" : "[Press any key to test]"}
                     </span>
@@ -1519,7 +1519,7 @@ border-radius: ${glassRadius}px;`;
 
           {/* Widget 9: Markdown Live Previewer [NEW] */}
           <SectionReveal>
-            <div className="border border-border bg-surface/10 rounded-md p-6 h-[460px] flex flex-col justify-between">
+            <div className="border border-border bg-surface/10 rounded-md p-4 sm:p-6 min-h-[460px] flex flex-col justify-between">
               <div>
                 <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent-warm mb-4">
                   09 // Markdown Live Previewer
@@ -1530,14 +1530,14 @@ border-radius: ${glassRadius}px;`;
                     : "Write text in Markdown markup on the left and see it compiled instantly into rich HTML output on the right."}
                 </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   {/* Editor */}
                   <div className="flex flex-col gap-1">
-                    <label className="font-mono text-[9px] uppercase text-tertiary">Markdown Editor</label>
+                    <label className="font-mono text-[10px] sm:text-[9px] uppercase text-tertiary">Markdown Editor</label>
                     <textarea
                       value={markdownInput}
                       onChange={(e) => setMarkdownInput(e.target.value)}
-                      className="bg-void border border-border rounded-sm p-3.5 text-[9px] font-mono text-secondary h-[230px] outline-none focus:border-accent resize-none select-text"
+                      className="bg-void border border-border rounded-sm p-3 sm:p-3.5 text-[10px] sm:text-[9px] font-mono text-secondary h-40 sm:h-[230px] outline-none focus:border-accent resize-none select-text"
                       spellCheck="false"
                       placeholder="Type markdown..."
                     />
@@ -1545,9 +1545,9 @@ border-radius: ${glassRadius}px;`;
 
                   {/* HTML Preview */}
                   <div className="flex flex-col gap-1">
-                    <label className="font-mono text-[9px] uppercase text-tertiary">HTML Render Output</label>
+                    <label className="font-mono text-[10px] sm:text-[9px] uppercase text-tertiary">HTML Render Output</label>
                     <div
-                      className="bg-void/50 border border-border rounded-sm p-3.5 h-[230px] overflow-y-auto text-secondary text-[10px] select-text prose prose-invert max-w-none leading-relaxed"
+                      className="bg-void/50 border border-border rounded-sm p-3 sm:p-3.5 h-40 sm:h-[230px] overflow-y-auto text-secondary text-[11px] sm:text-[10px] select-text prose prose-invert max-w-none leading-relaxed"
                       dangerouslySetInnerHTML={{ __html: parseMarkdownToHtml(markdownInput) }}
                     />
                   </div>
@@ -1558,7 +1558,7 @@ border-radius: ${glassRadius}px;`;
 
           {/* Widget 11: SQL Injection (SQLi) Simulator */}
           <SectionReveal>
-            <div className="border border-border bg-surface/10 rounded-md p-6 h-[460px] flex flex-col justify-between">
+            <div className="border border-border bg-surface/10 rounded-md p-4 sm:p-6 min-h-[460px] flex flex-col justify-between">
               <div>
                 <div className="flex justify-between items-baseline mb-4">
                   <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent-warm">
@@ -1581,7 +1581,7 @@ border-radius: ${glassRadius}px;`;
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-2">
                     <div className="flex flex-col gap-1">
-                      <label className="font-mono text-[9px] uppercase text-tertiary">Username</label>
+                      <label className="font-mono text-[10px] sm:text-[9px] uppercase text-tertiary">Username</label>
                       <input
                         type="text"
                         value={sqliUsername}
@@ -1591,7 +1591,7 @@ border-radius: ${glassRadius}px;`;
                       />
                     </div>
                     <div className="flex flex-col gap-1">
-                      <label className="font-mono text-[9px] uppercase text-tertiary">Password</label>
+                      <label className="font-mono text-[10px] sm:text-[9px] uppercase text-tertiary">Password</label>
                       <input
                         type="text"
                         value={sqliPassword}
@@ -1603,7 +1603,7 @@ border-radius: ${glassRadius}px;`;
                     
                     <button
                       onClick={executeSQLQuery}
-                      className="mt-2 bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[9px] uppercase tracking-wider py-2 rounded-sm transition-all duration-300 cursor-pointer"
+                      className="mt-2 bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[10px] sm:text-[9px] uppercase tracking-wider py-2 rounded-sm transition-all duration-300 cursor-pointer"
                     >
                       {lang === "id" ? "Jalankan Query SQL" : "Run SQL Query"}
                     </button>
@@ -1615,7 +1615,7 @@ border-radius: ${glassRadius}px;`;
                         <button
                           key={tab}
                           onClick={() => setSqliTab(tab)}
-                          className={`flex-1 font-mono text-[8px] uppercase py-1 tracking-wider transition-colors cursor-pointer ${
+                          className={`flex-1 font-mono text-[10px] sm:text-[8px] uppercase py-1 tracking-wider transition-colors cursor-pointer ${
                             sqliTab === tab ? "bg-primary text-void font-bold" : "text-secondary hover:bg-surface/50"
                           }`}
                         >
@@ -1624,7 +1624,7 @@ border-radius: ${glassRadius}px;`;
                       ))}
                     </div>
 
-                    <div className="bg-void/50 border border-border rounded-sm p-3 h-36 overflow-y-auto text-[9px] font-mono text-secondary">
+                    <div className="bg-void/50 border border-border rounded-sm p-3 h-32 sm:h-36 overflow-y-auto text-[10px] sm:text-[9px] font-mono text-secondary">
                       {sqliTab === "query" && (
                         <div className="space-y-2 select-text leading-normal">
                           <span className="text-zinc-500 block">// Generated SQL Query:</span>
@@ -1697,7 +1697,7 @@ border-radius: ${glassRadius}px;`;
 
           {/* Widget 12: WebSocket Pub-Sub Visualizer */}
           <SectionReveal>
-            <div className="border border-border bg-surface/10 rounded-md p-6 h-[460px] flex flex-col justify-between relative overflow-hidden">
+            <div className="border border-border bg-surface/10 rounded-md p-4 sm:p-6 min-h-[460px] flex flex-col justify-between overflow-hidden">
               <div>
                 <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent-warm mb-4">
                   12 // WebSocket Pub-Sub Broker
@@ -1717,7 +1717,7 @@ border-radius: ${glassRadius}px;`;
                         <select
                           value={wsChannel}
                           onChange={(e) => setWsChannel(e.target.value)}
-                          className="bg-void border border-border text-secondary text-[9px] font-mono px-2 py-1 rounded-sm outline-none focus:border-accent w-full cursor-pointer"
+                          className="bg-void border border-border text-secondary text-[10px] sm:text-[9px] font-mono px-2 py-1 rounded-sm outline-none focus:border-accent w-full cursor-pointer"
                         >
                           <option value="metrics">/channel/metrics</option>
                           <option value="alerts">/channel/alerts</option>
@@ -1725,7 +1725,7 @@ border-radius: ${glassRadius}px;`;
                         <textarea
                           value={wsMessage}
                           onChange={(e) => setWsMessage(e.target.value)}
-                          className="bg-void border border-border rounded-sm p-1.5 text-[8px] font-mono text-secondary h-12 outline-none resize-none"
+                          className="bg-void border border-border rounded-sm p-1.5 text-[10px] sm:text-[8px] font-mono text-secondary h-12 outline-none resize-none"
                           placeholder="Payload JSON..."
                         />
                       </div>
@@ -1733,7 +1733,7 @@ border-radius: ${glassRadius}px;`;
                     <button
                       onClick={publishWSMessage}
                       disabled={wsAnimState !== "idle"}
-                      className="mt-3 bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[8px] uppercase tracking-wider py-1.5 rounded-sm transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                      className="mt-3 bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[10px] sm:text-[8px] uppercase tracking-wider py-1.5 rounded-sm transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                     >
                       {lang === "id" ? "Publikasikan" : "Publish"}
                     </button>
@@ -1781,15 +1781,15 @@ border-radius: ${glassRadius}px;`;
                   </div>
 
                   {/* Clients Configuration Column */}
-                  <div className="border border-border bg-void/30 p-2.5 rounded-sm flex flex-col justify-between gap-2 text-[8px] font-mono">
-                    <span className="font-mono text-[8px] uppercase text-primary block font-bold">// Subscriptions</span>
+                  <div className="border border-border bg-void/30 p-2.5 rounded-sm flex flex-col justify-between gap-2 text-[10px] sm:text-[8px] font-mono">
+                    <span className="font-mono text-[10px] sm:text-[8px] uppercase text-primary block font-bold">// Subscriptions</span>
                     
                     {/* Client A */}
                     <div className="border-b border-border/40 pb-1">
                       <div className="flex justify-between items-center mb-1">
                         <span className="text-secondary font-bold">Client A</span>
                         <div className="flex gap-1.5">
-                          <label className="flex items-center gap-0.5 text-[7px] text-tertiary cursor-pointer">
+                          <label className="flex items-center gap-0.5 text-[9px] sm:text-[7px] text-tertiary cursor-pointer">
                             <input
                               type="checkbox"
                               checked={wsSubA.includes("metrics")}
@@ -1799,7 +1799,7 @@ border-radius: ${glassRadius}px;`;
                               className="accent-primary"
                             /> M
                           </label>
-                          <label className="flex items-center gap-0.5 text-[7px] text-tertiary cursor-pointer">
+                          <label className="flex items-center gap-0.5 text-[9px] sm:text-[7px] text-tertiary cursor-pointer">
                             <input
                               type="checkbox"
                               checked={wsSubA.includes("alerts")}
@@ -1811,7 +1811,7 @@ border-radius: ${glassRadius}px;`;
                           </label>
                         </div>
                       </div>
-                      <div className="text-[7px] text-zinc-500 h-6 overflow-hidden truncate">
+                      <div className="text-[9px] sm:text-[7px] text-zinc-500 h-6 overflow-hidden truncate">
                         {wsLogsA[0] || "Waiting data..."}
                       </div>
                     </div>
@@ -1821,7 +1821,7 @@ border-radius: ${glassRadius}px;`;
                       <div className="flex justify-between items-center mb-1">
                         <span className="text-secondary font-bold">Client B</span>
                         <div className="flex gap-1.5">
-                          <label className="flex items-center gap-0.5 text-[7px] text-tertiary cursor-pointer">
+                          <label className="flex items-center gap-0.5 text-[9px] sm:text-[7px] text-tertiary cursor-pointer">
                             <input
                               type="checkbox"
                               checked={wsSubB.includes("metrics")}
@@ -1831,7 +1831,7 @@ border-radius: ${glassRadius}px;`;
                               className="accent-primary"
                             /> M
                           </label>
-                          <label className="flex items-center gap-0.5 text-[7px] text-tertiary cursor-pointer">
+                          <label className="flex items-center gap-0.5 text-[9px] sm:text-[7px] text-tertiary cursor-pointer">
                             <input
                               type="checkbox"
                               checked={wsSubB.includes("alerts")}
@@ -1843,7 +1843,7 @@ border-radius: ${glassRadius}px;`;
                           </label>
                         </div>
                       </div>
-                      <div className="text-[7px] text-zinc-500 h-6 overflow-hidden truncate">
+                      <div className="text-[9px] sm:text-[7px] text-zinc-500 h-6 overflow-hidden truncate">
                         {wsLogsB[0] || "Waiting data..."}
                       </div>
                     </div>
@@ -1853,7 +1853,7 @@ border-radius: ${glassRadius}px;`;
                       <div className="flex justify-between items-center mb-1">
                         <span className="text-secondary font-bold">Client C</span>
                         <div className="flex gap-1.5">
-                          <label className="flex items-center gap-0.5 text-[7px] text-tertiary cursor-pointer">
+                          <label className="flex items-center gap-0.5 text-[9px] sm:text-[7px] text-tertiary cursor-pointer">
                             <input
                               type="checkbox"
                               checked={wsSubC.includes("metrics")}
@@ -1863,7 +1863,7 @@ border-radius: ${glassRadius}px;`;
                               className="accent-primary"
                             /> M
                           </label>
-                          <label className="flex items-center gap-0.5 text-[7px] text-tertiary cursor-pointer">
+                          <label className="flex items-center gap-0.5 text-[9px] sm:text-[7px] text-tertiary cursor-pointer">
                             <input
                               type="checkbox"
                               checked={wsSubC.includes("alerts")}
@@ -1875,7 +1875,7 @@ border-radius: ${glassRadius}px;`;
                           </label>
                         </div>
                       </div>
-                      <div className="text-[7px] text-zinc-500 h-6 overflow-hidden truncate">
+                      <div className="text-[9px] sm:text-[7px] text-zinc-500 h-6 overflow-hidden truncate">
                         {wsLogsC[0] || "Waiting data..."}
                       </div>
                     </div>
@@ -1887,7 +1887,7 @@ border-radius: ${glassRadius}px;`;
 
           {/* Widget 13: Git Commit Graph Simulator */}
           <SectionReveal>
-            <div className="border border-border bg-surface/10 rounded-md p-6 h-[460px] flex flex-col justify-between">
+            <div className="border border-border bg-surface/10 rounded-md p-4 sm:p-6 min-h-[460px] flex flex-col justify-between">
               <div>
                 <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-accent-warm mb-4">
                   13 // Git Commit Graph Visualizer
@@ -1900,7 +1900,7 @@ border-radius: ${glassRadius}px;`;
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Graph Render Area */}
-                  <div className="bg-void/50 border border-border/80 rounded-md h-44 relative overflow-y-auto p-4 flex flex-col-reverse justify-end select-none">
+                  <div className="bg-void/50 border border-border/80 rounded-md h-36 sm:h-44 relative overflow-y-auto p-4 flex flex-col-reverse justify-end select-none">
                     <svg className="w-full h-[300px] absolute top-0 left-0 text-border pointer-events-none">
                       {/* Draw parent lines */}
                       {gitHistory.map((commit, index) => {
@@ -1976,7 +1976,7 @@ border-radius: ${glassRadius}px;`;
 
                   {/* Git Terminal Command Console */}
                   <div className="flex flex-col gap-2">
-                    <div className="bg-void border border-border rounded-sm p-3.5 h-32 overflow-y-auto font-mono text-[8px] text-zinc-400 space-y-1">
+                    <div className="bg-void border border-border rounded-sm p-3 sm:p-3.5 h-24 sm:h-32 overflow-y-auto font-mono text-[9px] sm:text-[8px] text-zinc-400 space-y-1">
                       {gitConsole.map((log, idx) => (
                         <div
                           key={idx}
@@ -1994,13 +1994,13 @@ border-radius: ${glassRadius}px;`;
                     <div className="grid grid-cols-2 gap-1.5">
                       <button
                         onClick={handleGitCommit}
-                        className="bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[8px] uppercase tracking-wider py-1.5 rounded-sm transition-all duration-300 cursor-pointer"
+                        className="bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[10px] sm:text-[8px] uppercase tracking-wider py-1.5 rounded-sm transition-all duration-300 cursor-pointer"
                       >
                         git commit
                       </button>
                       <button
                         onClick={handleGitBranch}
-                        className="bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[8px] uppercase tracking-wider py-1.5 rounded-sm transition-all duration-300 cursor-pointer"
+                        className="bg-void border border-border hover:border-primary text-primary hover:bg-primary hover:text-void font-mono text-[10px] sm:text-[8px] uppercase tracking-wider py-1.5 rounded-sm transition-all duration-300 cursor-pointer"
                       >
                         git branch
                       </button>
@@ -2009,7 +2009,7 @@ border-radius: ${glassRadius}px;`;
                       <select
                         value={gitActiveBranch}
                         onChange={(e) => handleGitCheckout(e.target.value)}
-                        className="bg-void border border-border text-secondary text-[8px] font-mono px-2 py-1.5 rounded-sm outline-none focus:border-accent cursor-pointer"
+                        className="bg-void border border-border text-secondary text-[10px] sm:text-[8px] font-mono px-2 py-1.5 rounded-sm outline-none focus:border-accent cursor-pointer"
                       >
                         {gitBranches.map((br) => (
                           <option key={br} value={br}>
@@ -2026,7 +2026,7 @@ border-radius: ${glassRadius}px;`;
                             e.target.value = ""; // Reset
                           }
                         }}
-                        className="bg-void border border-border text-secondary text-[8px] font-mono px-2 py-1.5 rounded-sm outline-none focus:border-accent cursor-pointer"
+                        className="bg-void border border-border text-secondary text-[10px] sm:text-[8px] font-mono px-2 py-1.5 rounded-sm outline-none focus:border-accent cursor-pointer"
                         defaultValue=""
                       >
                         <option value="" disabled>
@@ -2111,7 +2111,7 @@ border-radius: ${glassRadius}px;`;
                 </p>
 
                 {/* Visualizer bars graph */}
-                <div className="h-52 bg-void/50 border border-border/80 rounded-md flex items-end justify-between px-4 sm:px-8 py-3 mb-6 relative">
+                <div className="h-40 sm:h-52 bg-void/50 border border-border/80 rounded-md flex items-end justify-between px-2 sm:px-8 py-3 mb-6 relative">
                   {sortArray.map((value, idx) => {
                     const isActive = activeSortIndices.includes(idx);
                     const isSorted = sortedIndices.includes(idx);
@@ -2122,7 +2122,7 @@ border-radius: ${glassRadius}px;`;
                     return (
                       <div
                         key={idx}
-                        className={`w-[2.2%] rounded-t-sm border transition-all duration-150 ${barColor}`}
+                        className={`w-[2.2%] sm:w-[2.2%] rounded-t-sm border transition-all duration-150 ${barColor}`}
                         style={{ height: `${value}%` }}
                       />
                     );
