@@ -59,6 +59,11 @@ export const translations = {
           title: "CodeTack",
           subtitle: "Interactive Learning Platform — 🥈 2nd Place ICONFEST 3.0 National",
           desc: "An interactive coding education platform for beginners that won 2nd place nationally at ICONFEST 3.0. I developed a complete CSS learning module — ranging from selectors, box model, flexbox, grid, to responsive design — using a hands-on approach. Contributed to the live coding environment that allows users to write and view code results in real-time directly in the browser, without local setup.",
+        },
+        researchfinder: {
+          title: "ResearchFinder",
+          subtitle: "AI-Powered Research Paper Finder & Summarizer",
+          desc: "An academic research web platform helping students discover, comprehend, and organize scientific papers. Built using Python FastAPI and Vue 3, it integrates Semantic Scholar and arXiv APIs, utilizing Groq API (LLaMA 3) to automatically generate Indonesian summaries, perform research gap analysis, and provide interactive plain-language explanations.",
         }
       }
     },
@@ -162,6 +167,11 @@ export const translations = {
           title: "CodeTack",
           subtitle: "Platform Pembelajaran Interaktif — 🥈 Juara 2 ICONFEST 3.0 Nasional",
           desc: "Platform edukasi coding interaktif untuk pemula yang meraih Juara 2 tingkat nasional di ICONFEST 3.0. Saya mengembangkan modul pembelajaran CSS lengkap — mulai dari selector, box model, flexbox, grid, hingga responsive design — dengan pendekatan hands-on. Berkontribusi pada live coding environment yang memungkinkan pengguna menulis dan melihat hasil kode secara real-time langsung di browser, tanpa perlu setup lokal.",
+        },
+        researchfinder: {
+          title: "ResearchFinder",
+          subtitle: "AI-Powered Research Paper Finder & Summarizer",
+          desc: "Platform riset akademik berbasis web untuk membantu mahasiswa menemukan, memahami, dan mengelola paper ilmiah secara efisien. Dibangun menggunakan Python FastAPI dan Vue 3, platform ini mengintegrasikan API Semantic Scholar dan arXiv, serta memanfaatkan Groq API (LLaMA 3) untuk menghasilkan ringkasan otomatis bahasa Indonesia, menganalisis celah penelitian (research gap), dan menjelaskan teks akademik yang kompleks secara sederhana.",
         }
       }
     },

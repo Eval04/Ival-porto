@@ -137,6 +137,10 @@ export default function Terminal() {
           "3. LinkinBio AI (2026)",
           `   - ${t("projects.list.linkinbio.subtitle")}`,
           `   - Link: https://link-bio-puce.vercel.app/`,
+          "",
+          "4. ResearchFinder (2026)",
+          `   - ${t("projects.list.researchfinder.subtitle")}`,
+          `   - Link: https://github.com/Vals-devs/ReaserchHelper.git`,
         ];
         break;
 

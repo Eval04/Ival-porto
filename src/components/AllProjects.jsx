@@ -38,6 +38,16 @@ export default function AllProjects() {
       year: "2025",
       categories: ["all", "frontend"],
     },
+    {
+      title: t("projects.list.researchfinder.title"),
+      subtitle: t("projects.list.researchfinder.subtitle"),
+      description: t("projects.list.researchfinder.desc"),
+      tags: ["Vue.js 3", "FastAPI", "Groq API", "Python", "PostgreSQL", "Redis", "Tailwind v4", "Pinia", "Docker"],
+      link: "https://github.com/Vals-devs/ReaserchHelper.git",
+      image: "/images/ReaserchFinder.png",
+      year: "2026",
+      categories: ["all", "fullstack", "ai"],
+    },
   ];
 
   const filters = [
