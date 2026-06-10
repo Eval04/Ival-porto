@@ -27,13 +27,15 @@ export default function Projects() {
       year: "2025",
     },
     {
-      title: t("projects.list.linkinbio.title"),
-      subtitle: t("projects.list.linkinbio.subtitle"),
-      description: t("projects.list.linkinbio.desc"),
-      tags: ["Vue.js 3", "Laravel 11", "Tailwind v4", "Docker", "PostgreSQL", "Redis", "Groq API"],
-      link: "https://link-bio-puce.vercel.app/",
-      image: "/images/LinkBio.png",
-      year: "2026",
+      title: t("projects.list.siagadarah.title"),
+      subtitle: t("projects.list.siagadarah.subtitle"),
+      description: t("projects.list.siagadarah.desc"),
+      tags: ["Flutter", "Firebase Auth", "Cloud Firestore", "Firebase Messaging", "Google Maps API"],
+      link: "",
+      isPrivate: true,
+      isMobile: true,
+      image: "/images/SiagaDarah.png",
+      year: "2025",
     },
   ];
 
@@ -107,24 +109,44 @@ export default function Projects() {
                   </div>
 
                   <div className="lg:col-span-5 flex flex-col gap-4">
-                    <div className="block overflow-hidden rounded-md border border-border bg-void/50 aspect-video relative group/img">
+                    <div className={`block overflow-hidden rounded-md border border-border bg-void/50 relative group/img ${project.isMobile ? "aspect-[9/16] max-w-[260px] mx-auto w-full" : "aspect-video"}`}>
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover grayscale opacity-60 group-hover/img:grayscale-0 group-hover/img:opacity-100 group-hover/img:scale-[1.03] transition-all duration-700 ease-out"
+                        className={`w-full h-full grayscale opacity-60 group-hover/img:grayscale-0 group-hover/img:opacity-100 group-hover/img:scale-[1.03] transition-all duration-700 ease-out ${project.isMobile ? "object-contain" : "object-cover"}`}
                       />
                     </div>
 
                     <div className="flex justify-between items-center mt-2">
-                      <a
-                        href={project.link || "#"}
-                        target={project.link ? "_blank" : undefined}
-                        rel={project.link ? "noopener noreferrer" : undefined}
-                        className="group/link inline-flex items-center gap-2 sm:gap-3 font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors duration-300 py-1"
-                      >
-                        <span className="w-4 sm:w-6 h-px bg-border group-hover/link:w-8 sm:group-hover/link:w-10 group-hover/link:bg-accent transition-all duration-500 ease-out" />
-                        {project.link ? t("projects.openApp") : t("projects.viewDetail")}
-                      </a>
+                      {project.isPrivate ? (
+                        <span className="inline-flex items-center gap-2 font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.2em] text-tertiary py-1 select-none">
+                          <svg
+                            className="w-3.5 h-3.5"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                            />
+                          </svg>
+                          {t("projects.privateRepo")}
+                        </span>
+                      ) : (
+                        <a
+                          href={project.link || "#"}
+                          target={project.link ? "_blank" : undefined}
+                          rel={project.link ? "noopener noreferrer" : undefined}
+                          className="group/link inline-flex items-center gap-2 sm:gap-3 font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors duration-300 py-1"
+                        >
+                          <span className="w-4 sm:w-6 h-px bg-border group-hover/link:w-8 sm:group-hover/link:w-10 group-hover/link:bg-accent transition-all duration-500 ease-out" />
+                          {project.link ? t("projects.openApp") : t("projects.viewDetail")}
+                        </a>
+                      )}
                       <span className="font-mono text-[9px] sm:text-[11px] text-tertiary">
                         {project.year}
                       </span>

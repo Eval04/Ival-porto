@@ -48,12 +48,25 @@ export default function AllProjects() {
       year: "2026",
       categories: ["all", "fullstack", "ai"],
     },
+    {
+      title: t("projects.list.siagadarah.title"),
+      subtitle: t("projects.list.siagadarah.subtitle"),
+      description: t("projects.list.siagadarah.desc"),
+      tags: ["Flutter", "Firebase Auth", "Cloud Firestore", "Firebase Messaging", "Google Maps API"],
+      link: "",
+      isPrivate: true,
+      isMobile: true,
+      image: "/images/SiagaDarah.png",
+      year: "2025",
+      categories: ["all", "mobile"],
+    },
   ];
 
   const filters = [
     { key: "all", label: t("projects.filterAll") },
     { key: "fullstack", label: t("projects.filterFullstack") },
     { key: "frontend", label: t("projects.filterFrontend") },
+    { key: "mobile", label: t("projects.filterMobile") },
     { key: "ai", label: t("projects.filterAI") },
   ];
 
@@ -109,11 +122,10 @@ export default function AllProjects() {
                 setActiveFilter(filter.key);
                 setHoveredIndex(null);
               }}
-              className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-wider px-4 py-2 border rounded-sm transition-all duration-300 cursor-pointer ${
-                activeFilter === filter.key
+              className={`font-mono text-[10px] sm:text-[11px] uppercase tracking-wider px-4 py-2 border rounded-sm transition-all duration-300 cursor-pointer ${activeFilter === filter.key
                   ? "bg-primary border-primary text-void font-medium"
                   : "border-border text-secondary hover:border-accent hover:text-primary"
-              }`}
+                }`}
             >
               {filter.label}
             </button>
@@ -131,11 +143,11 @@ export default function AllProjects() {
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
                   {/* Image Card */}
-                  <div className="block overflow-hidden rounded-md border border-border bg-void/50 aspect-video relative group/img mb-6">
+                  <div className={`block overflow-hidden rounded-md border border-border bg-void/50 relative group/img mb-6 ${project.isMobile ? "aspect-[9/16] max-w-[220px] mx-auto w-full" : "aspect-video"}`}>
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover grayscale opacity-60 group-hover/img:grayscale-0 group-hover/img:opacity-100 group-hover/img:scale-[1.02] transition-all duration-700 ease-out"
+                      className={`w-full h-full grayscale opacity-60 group-hover/img:grayscale-0 group-hover/img:opacity-100 group-hover/img:scale-[1.02] transition-all duration-700 ease-out ${project.isMobile ? "object-contain" : "object-cover"}`}
                     />
                   </div>
 
@@ -176,15 +188,35 @@ export default function AllProjects() {
 
                   {/* Action Link */}
                   <div className="border-t border-border/50 pt-4 flex justify-between items-center">
-                    <a
-                      href={project.link || "#"}
-                      target={project.link ? "_blank" : undefined}
-                      rel={project.link ? "noopener noreferrer" : undefined}
-                      className="group/link inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors duration-300 py-1"
-                    >
-                      <span className="w-4 h-px bg-border group-hover/link:w-8 group-hover/link:bg-accent transition-all duration-500 ease-out" />
-                      {project.link ? t("projects.openApp") : t("projects.viewDetail")}
-                    </a>
+                    {project.isPrivate ? (
+                      <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-tertiary py-1 select-none">
+                        <svg
+                          className="w-3.5 h-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+                          />
+                        </svg>
+                        {t("projects.privateRepo")}
+                      </span>
+                    ) : (
+                      <a
+                        href={project.link || "#"}
+                        target={project.link ? "_blank" : undefined}
+                        rel={project.link ? "noopener noreferrer" : undefined}
+                        className="group/link inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors duration-300 py-1"
+                      >
+                        <span className="w-4 h-px bg-border group-hover/link:w-8 group-hover/link:bg-accent transition-all duration-500 ease-out" />
+                        {project.link ? t("projects.openApp") : t("projects.viewDetail")}
+                      </a>
+                    )}
                   </div>
                 </article>
               </SectionReveal>

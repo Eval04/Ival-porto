@@ -38,11 +38,13 @@ export const translations = {
       projectsCount: "Projects",
       openApp: "Open App",
       viewDetail: "View Details",
+      privateRepo: "Private Repo",
       backHome: "Back to Home",
       allProjects: "All Projects",
       filterAll: "All",
       filterFullstack: "Fullstack",
       filterFrontend: "Frontend",
+      filterMobile: "Mobile",
       filterAI: "AI",
       list: {
         linkinbio: {
@@ -64,6 +66,11 @@ export const translations = {
           title: "ResearchFinder",
           subtitle: "AI-Powered Research Paper Finder & Summarizer",
           desc: "An academic research web platform helping students discover, comprehend, and organize scientific papers. Built using Python FastAPI and Vue 3, it integrates Semantic Scholar and arXiv APIs, utilizing Groq API (LLaMA 3) to automatically generate Indonesian summaries, perform research gap analysis, and provide interactive plain-language explanations.",
+        },
+        siagadarah: {
+          title: "SiagaDarah",
+          subtitle: "Emergency Blood Donor Platform — Mobile App",
+          desc: "A mobile-based application built with Flutter and Firebase designed to quickly connect blood seekers and donors in emergencies. It features real-time notifications via Firebase Cloud Messaging, Google Maps real-time location tracking, and role-based panels for seekers, donors, and administrators.",
         }
       }
     },
@@ -92,6 +99,10 @@ export const translations = {
         php: "Server-side web development",
         mysql: "Relational database & XAMPP",
         python: "Scripting & automation",
+        fastapi: "High-performance Python API framework",
+        react: "Component-based UI library",
+        vue: "Progressive frontend framework",
+        firebase: "Cloud backend-as-a-service platform",
       }
     },
     contact: {
@@ -146,11 +157,13 @@ export const translations = {
       projectsCount: "Proyek",
       openApp: "Buka Aplikasi",
       viewDetail: "Lihat Detail",
+      privateRepo: "Repositori Privat",
       backHome: "Kembali ke Beranda",
       allProjects: "Semua Proyek",
       filterAll: "Semua",
       filterFullstack: "Fullstack",
       filterFrontend: "Frontend",
+      filterMobile: "Mobile",
       filterAI: "AI",
       list: {
         linkinbio: {
@@ -172,6 +185,11 @@ export const translations = {
           title: "ResearchFinder",
           subtitle: "AI-Powered Research Paper Finder & Summarizer",
           desc: "Platform riset akademik berbasis web untuk membantu mahasiswa menemukan, memahami, dan mengelola paper ilmiah secara efisien. Dibangun menggunakan Python FastAPI dan Vue 3, platform ini mengintegrasikan API Semantic Scholar dan arXiv, serta memanfaatkan Groq API (LLaMA 3) untuk menghasilkan ringkasan otomatis bahasa Indonesia, menganalisis celah penelitian (research gap), dan menjelaskan teks akademik yang kompleks secara sederhana.",
+        },
+        siagadarah: {
+          title: "SiagaDarah",
+          subtitle: "Platform Darurat Donor Darah — Aplikasi Mobile",
+          desc: "Aplikasi mobile berbasis Flutter dan Firebase yang dirancang untuk memfasilitasi koneksi cepat antara pencari darah dan pendonor dalam situasi darurat. Dilengkapi notifikasi real-time via Firebase Messaging, pelacakan lokasi real-time dengan Google Maps API, serta panel khusus untuk pencari, pendonor, dan admin.",
         }
       }
     },
@@ -200,6 +218,10 @@ export const translations = {
         php: "Pengembangan web sisi server",
         mysql: "Database relasional & XAMPP",
         python: "Scripting & otomasi",
+        fastapi: "Framework API Python berkinerja tinggi",
+        react: "Pustaka UI & SPA berbasis komponen",
+        vue: "Framework frontend progresif",
+        firebase: "Platform cloud backend-as-a-service",
       }
     },
     contact: {

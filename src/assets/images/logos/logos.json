@@ -22,7 +22,11 @@
     "system-design.png",
     "php.svg",
     "mysql.svg",
-    "python.svg"
+    "python.svg",
+    "fastapi.svg",
+    "react.svg",
+    "vue.svg",
+    "firebase.svg"
   ],
   "note": "All skills icons updated to SVG format except Java which uses a custom PNG logo."
 }

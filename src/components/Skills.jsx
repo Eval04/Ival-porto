@@ -16,6 +16,10 @@ import systemDesignIcon from "../assets/images/logos/system-design.png";
 import phpIcon from "../assets/images/logos/php.svg";
 import mysqlIcon from "../assets/images/logos/mysql.svg";
 import pythonIcon from "../assets/images/logos/python.svg";
+import fastapiIcon from "../assets/images/logos/fastapi.svg";
+import reactIcon from "../assets/images/logos/react.svg";
+import vueIcon from "../assets/images/logos/vue.svg";
+import firebaseIcon from "../assets/images/logos/firebase.svg";
 
 const iconMap = {
   "Node.js": nodejsIcon,
@@ -33,6 +37,10 @@ const iconMap = {
   PHP: phpIcon,
   "MySQL / XAMPP": mysqlIcon,
   Python: pythonIcon,
+  FastAPI: fastapiIcon,
+  "React.js": reactIcon,
+  "Vue.js": vueIcon,
+  Firebase: firebaseIcon,
 };
 
 export default function Skills() {
@@ -42,6 +50,8 @@ export default function Skills() {
     {
       title: t("skills.categories.languages"),
       items: [
+        { name: "React.js", context: t("skills.contexts.react") },
+        { name: "Vue.js", context: t("skills.contexts.vue") },
         { name: "Node.js", context: t("skills.contexts.nodejs") },
         { name: "Java", context: t("skills.contexts.java") },
         { name: "HTML / CSS", context: t("skills.contexts.html") },
@@ -56,6 +66,8 @@ export default function Skills() {
         { name: "PostgreSQL", context: t("skills.contexts.postgres") },
         { name: "MySQL / XAMPP", context: t("skills.contexts.mysql") },
         { name: "Redis", context: t("skills.contexts.redis") },
+        { name: "FastAPI", context: t("skills.contexts.fastapi") },
+        { name: "Firebase", context: t("skills.contexts.firebase") },
         { name: "Docker", context: t("skills.contexts.docker") },
       ],
     },

@@ -103,6 +103,8 @@ export default function Terminal() {
         output = [
           ".",
           `├── ${t("skills.categories.languages")}`,
+          "│   ├── React.js",
+          "│   ├── Vue.js",
           "│   ├── Node.js",
           "│   ├── Java",
           "│   ├── HTML / CSS",
@@ -113,6 +115,8 @@ export default function Terminal() {
           "│   ├── PostgreSQL",
           "│   ├── MySQL / XAMPP",
           "│   ├── Redis",
+          "│   ├── FastAPI",
+          "│   ├── Firebase",
           "│   └── Docker",
           `├── ${t("skills.categories.infra")}`,
           "│   ├── Cloud Architecture",
@@ -141,6 +145,10 @@ export default function Terminal() {
           "4. ResearchFinder (2026)",
           `   - ${t("projects.list.researchfinder.subtitle")}`,
           `   - Link: https://github.com/Vals-devs/ReaserchHelper.git`,
+          "",
+          "5. SiagaDarah (2025)",
+          `   - ${t("projects.list.siagadarah.subtitle")}`,
+          `   - Link: [${t("projects.privateRepo")}]`,
         ];
         break;
 
