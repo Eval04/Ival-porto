@@ -6,18 +6,9 @@ export default function Footer() {
   const [isTelemetryOpen, setIsTelemetryOpen] = useState(false);
   
   // Simulated metric states
-  const [latency, setLatency] = useState(142);
-  const [cacheHit, setCacheHit] = useState(95.4);
+  const [productsShipped, setProductsShipped] = useState(5);
+  const [linesOfCode, setLinesOfCode] = useState("42.8k");
   const [uptime, setUptime] = useState("");
-
-  // Update latency and cache hit rate dynamically
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLatency(Math.floor(Math.random() * 40) + 120);
-      setCacheHit(Number((94 + Math.random() * 2).toFixed(1)));
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
 
   // Calculate uptime dynamically since June 1, 2026
   useEffect(() => {
@@ -94,32 +85,32 @@ export default function Footer() {
           <div className="border-t border-border pt-6 grid grid-cols-2 md:grid-cols-4 gap-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
             <div className="flex flex-col gap-1.5">
               <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.15em] text-tertiary">
-                API Latency
+                Products Shipped
               </span>
               <span className="font-mono text-xs text-primary font-medium">
-                {latency}ms
+                {productsShipped}+ products
               </span>
             </div>
             <div className="flex flex-col gap-1.5">
               <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.15em] text-tertiary">
-                Cache Hit Rate
+                Lines Written
               </span>
               <span className="font-mono text-xs text-primary font-medium">
-                {cacheHit}% (Redis)
+                ~{linesOfCode}
               </span>
             </div>
             <div className="flex flex-col gap-1.5">
               <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.15em] text-tertiary">
-                DB Pool Status
+                Home Server
               </span>
               <span className="font-mono text-xs text-emerald-500 font-medium flex items-center gap-1.5">
                 <span className="inline-block w-1 h-1 rounded-full bg-emerald-500" />
-                Active (12/20)
+                Online (Docker)
               </span>
             </div>
             <div className="flex flex-col gap-1.5">
               <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.15em] text-tertiary">
-                System Uptime
+                Builder Uptime
               </span>
               <span className="font-mono text-xs text-primary font-medium">
                 {uptime}

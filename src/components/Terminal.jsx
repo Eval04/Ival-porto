@@ -21,12 +21,14 @@ export default function Terminal() {
     const welcome =
       lang === "id"
         ? [
-            "Selamat datang di Terminal Portofolio Ival Permana (v1.0.0).",
+            "Selamat datang di Terminal Portofolio Ival Permana (v2.0.0).",
+            "Software Developer & Product Builder.",
             "Ketik 'help' untuk melihat daftar perintah yang tersedia.",
             "",
           ]
         : [
-            "Welcome to Ival Permana's Terminal Portfolio (v1.0.0).",
+            "Welcome to Ival Permana's Terminal Portfolio (v2.0.0).",
+            "Software Developer & Product Builder.",
             "Type 'help' to see the list of available commands.",
             "",
           ];
@@ -71,18 +73,20 @@ export default function Terminal() {
           lang === "id"
             ? [
                 "Perintah yang tersedia:",
-                "  about    - Menampilkan bio singkat pengembang",
+                "  about    - Menampilkan bio singkat",
                 "  skills   - Menampilkan pohon teknologi & peralatan",
                 "  projects - Menampilkan daftar proyek beserta tautan",
+                "  services - Menampilkan layanan yang ditawarkan",
                 "  neofetch - Menampilkan info sistem & spesifikasi",
                 "  clear    - Membersihkan layar terminal",
                 "  exit     - Keluar dari mode terminal",
               ]
             : [
                 "Available commands:",
-                "  about    - Display brief developer bio",
+                "  about    - Display brief bio",
                 "  skills   - Show technologies & tools tree",
                 "  projects - List key projects with links",
+                "  services - Show services offered",
                 "  neofetch - Display system info & specs",
                 "  clear    - Clear terminal screen",
                 "  exit     - Close CLI terminal mode",
@@ -102,29 +106,26 @@ export default function Terminal() {
       case "skills":
         output = [
           ".",
-          `├── ${t("skills.categories.languages")}`,
+          `├── ${t("skills.categories.frontend")}`,
           "│   ├── React.js",
           "│   ├── Vue.js",
-          "│   ├── Node.js",
-          "│   ├── Java",
           "│   ├── HTML / CSS",
-          "│   ├── Dart / Flutter",
-          "│   ├── PHP",
-          "│   └── Python",
+          "│   └── Dart / Flutter",
+          `├── ${t("skills.categories.backend")}`,
+          "│   ├── Node.js",
+          "│   ├── Python",
+          "│   ├── FastAPI",
+          "│   ├── Java",
+          "│   └── PHP",
           `├── ${t("skills.categories.database")}`,
           "│   ├── PostgreSQL",
           "│   ├── MySQL / XAMPP",
           "│   ├── Redis",
-          "│   ├── FastAPI",
-          "│   ├── Firebase",
-          "│   └── Docker",
-          `├── ${t("skills.categories.infra")}`,
-          "│   ├── Cloud Architecture",
-          "│   ├── Network Engineering",
-          "│   └── Microservices",
-          `└── ${t("skills.categories.tools")}`,
-          "    ├── AI Integration",
-          "    └── System Design",
+          "│   └── Firebase",
+          `└── ${t("skills.categories.deploy")}`,
+          "    ├── Docker",
+          "    ├── Cloud Architecture",
+          "    └── AI Integration",
         ];
         break;
 
@@ -142,7 +143,7 @@ export default function Terminal() {
           `   - ${t("projects.list.linkinbio.subtitle")}`,
           `   - Link: https://link-bio-puce.vercel.app/`,
           "",
-          "4. ResearchFinder (2026)",
+          "4. ResearchFinder (2026) ★ Featured",
           `   - ${t("projects.list.researchfinder.subtitle")}`,
           `   - Link: https://github.com/Vals-devs/ReaserchHelper.git`,
           "",
@@ -150,6 +151,45 @@ export default function Terminal() {
           `   - ${t("projects.list.siagadarah.subtitle")}`,
           `   - Link: [${t("projects.privateRepo")}]`,
         ];
+        break;
+
+      case "services":
+        output =
+          lang === "id"
+            ? [
+                "Layanan yang saya tawarkan:",
+                "",
+                "01  Landing Page & Company Profile",
+                "    → Website responsif untuk bisnis kamu",
+                "",
+                "02  Aplikasi Web Custom",
+                "    → Dashboard, management system, business tools",
+                "",
+                "03  Aplikasi Mobile",
+                "    → Flutter apps untuk iOS & Android",
+                "",
+                "04  Pengembangan MVP",
+                "    → Validasi ide dengan produk minimum",
+                "",
+                "Hubungi: ivalpermana24@gmail.com",
+              ]
+            : [
+                "Services I offer:",
+                "",
+                "01  Landing Pages & Company Profiles",
+                "    → Responsive websites for your business",
+                "",
+                "02  Custom Web Applications",
+                "    → Dashboards, management systems, business tools",
+                "",
+                "03  Mobile Applications",
+                "    → Flutter apps for iOS & Android",
+                "",
+                "04  MVP Development",
+                "    → Validate ideas with minimum viable products",
+                "",
+                "Contact: ivalpermana24@gmail.com",
+              ];
         break;
 
       case "neofetch":
@@ -164,14 +204,14 @@ export default function Terminal() {
         const sysInfo = [
           "ival@permana",
           "------------",
-          "OS: Void Linux x86_64",
-          "Host: Ival Porto Portfolio v1.0.0",
+          "Role: Software Developer & Product Builder",
+          "Host: Ival Portfolio v2.0.0",
           "Kernel: React 18.2.0 + Vite",
           "Shell: bash 5.2.15",
-          "Theme: Custom Dark Void",
+          "Theme: Custom Dark Void (Cyberpunk)",
           "Terminal: Web-CLI",
-          "CPU: Intel Core i7-12700H (12) @ 4.70GHz [Mock]",
-          "Memory: 16GB LPDDR5 [Mock]",
+          "Products: 5+ shipped",
+          "Stack: Web + Mobile + AI",
         ];
         // Zip logo and info
         const maxLength = Math.max(logo.length, sysInfo.length);

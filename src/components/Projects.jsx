@@ -12,6 +12,8 @@ export default function Projects() {
       title: t("projects.list.ecotrace.title"),
       subtitle: t("projects.list.ecotrace.subtitle"),
       description: t("projects.list.ecotrace.desc"),
+      problem: t("projects.list.ecotrace.problem"),
+      outcome: t("projects.list.ecotrace.outcome"),
       tags: ["React.js", "Firebase", "Tailwind", "Leaflet.js", "Cloudinary"],
       link: "https://ecotrace-id.vercel.app/",
       image: "/images/Ecotrace.png",
@@ -21,6 +23,8 @@ export default function Projects() {
       title: t("projects.list.codetack.title"),
       subtitle: t("projects.list.codetack.subtitle"),
       description: t("projects.list.codetack.desc"),
+      problem: t("projects.list.codetack.problem"),
+      outcome: t("projects.list.codetack.outcome"),
       tags: ["HTML", "CSS", "Tailwind", "JavaScript", "Live Coding"],
       link: "https://justrahyan.github.io/CodeTack/",
       image: "/images/CodeTack.png",
@@ -30,6 +34,8 @@ export default function Projects() {
       title: t("projects.list.siagadarah.title"),
       subtitle: t("projects.list.siagadarah.subtitle"),
       description: t("projects.list.siagadarah.desc"),
+      problem: t("projects.list.siagadarah.problem"),
+      outcome: t("projects.list.siagadarah.outcome"),
       tags: ["Flutter", "Firebase Auth", "Cloud Firestore", "Firebase Messaging", "Google Maps API"],
       link: "",
       isPrivate: true,
@@ -93,6 +99,19 @@ export default function Projects() {
                         />
                       </h3>
                     </div>
+
+                    {/* Problem & Outcome */}
+                    <div className="mb-4 sm:mb-6 space-y-3">
+                      <div className="flex items-start gap-2 text-sm">
+                        <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-tertiary shrink-0 mt-0.5 w-16 sm:w-20">Problem</span>
+                        <span className="text-secondary leading-relaxed">{project.problem}</span>
+                      </div>
+                      <div className="flex items-start gap-2 text-sm">
+                        <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-wider text-emerald-500/70 shrink-0 mt-0.5 w-16 sm:w-20">Outcome</span>
+                        <span className="text-secondary leading-relaxed">{project.outcome}</span>
+                      </div>
+                    </div>
+
                     <p className="text-sm sm:text-base md:text-lg text-secondary leading-relaxed mb-6 sm:mb-8 max-w-2xl text-balance">
                       {project.description}
                     </p>

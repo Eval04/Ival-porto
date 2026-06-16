@@ -12,6 +12,8 @@ export default function AllProjects() {
       title: t("projects.list.linkinbio.title"),
       subtitle: t("projects.list.linkinbio.subtitle"),
       description: t("projects.list.linkinbio.desc"),
+      problem: t("projects.list.linkinbio.problem"),
+      outcome: t("projects.list.linkinbio.outcome"),
       tags: ["Vue.js 3", "Laravel 11", "Tailwind v4", "Docker", "PostgreSQL", "Redis", "Groq API"],
       link: "https://link-bio-puce.vercel.app/",
       image: "/images/LinkBio.png",
@@ -22,6 +24,8 @@ export default function AllProjects() {
       title: t("projects.list.ecotrace.title"),
       subtitle: t("projects.list.ecotrace.subtitle"),
       description: t("projects.list.ecotrace.desc"),
+      problem: t("projects.list.ecotrace.problem"),
+      outcome: t("projects.list.ecotrace.outcome"),
       tags: ["React.js", "Firebase", "Tailwind", "Leaflet.js", "Cloudinary"],
       link: "https://ecotrace-id.vercel.app/",
       image: "/images/Ecotrace.png",
@@ -32,6 +36,8 @@ export default function AllProjects() {
       title: t("projects.list.codetack.title"),
       subtitle: t("projects.list.codetack.subtitle"),
       description: t("projects.list.codetack.desc"),
+      problem: t("projects.list.codetack.problem"),
+      outcome: t("projects.list.codetack.outcome"),
       tags: ["HTML", "CSS", "Tailwind", "JavaScript", "Live Coding"],
       link: "https://justrahyan.github.io/CodeTack/",
       image: "/images/CodeTack.png",
@@ -42,6 +48,8 @@ export default function AllProjects() {
       title: t("projects.list.researchfinder.title"),
       subtitle: t("projects.list.researchfinder.subtitle"),
       description: t("projects.list.researchfinder.desc"),
+      problem: t("projects.list.researchfinder.problem"),
+      outcome: t("projects.list.researchfinder.outcome"),
       tags: ["Vue.js 3", "FastAPI", "Groq API", "Python", "PostgreSQL", "Redis", "Tailwind v4", "Pinia", "Docker"],
       link: "https://github.com/Vals-devs/ReaserchHelper.git",
       image: "/images/ReaserchFinder.png",
@@ -52,6 +60,8 @@ export default function AllProjects() {
       title: t("projects.list.siagadarah.title"),
       subtitle: t("projects.list.siagadarah.subtitle"),
       description: t("projects.list.siagadarah.desc"),
+      problem: t("projects.list.siagadarah.problem"),
+      outcome: t("projects.list.siagadarah.outcome"),
       tags: ["Flutter", "Firebase Auth", "Cloud Firestore", "Firebase Messaging", "Google Maps API"],
       link: "",
       isPrivate: true,
@@ -168,6 +178,18 @@ export default function AllProjects() {
                       trigger={hoveredIndex === index}
                     />
                   </h3>
+
+                  {/* Problem & Outcome */}
+                  <div className="mb-3 space-y-2">
+                    <div className="flex items-start gap-2 text-xs">
+                      <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-wider text-tertiary shrink-0 mt-0.5 w-14">Problem</span>
+                      <span className="text-secondary leading-relaxed">{project.problem}</span>
+                    </div>
+                    <div className="flex items-start gap-2 text-xs">
+                      <span className="font-mono text-[8px] sm:text-[9px] uppercase tracking-wider text-emerald-500/70 shrink-0 mt-0.5 w-14">Outcome</span>
+                      <span className="text-secondary leading-relaxed">{project.outcome}</span>
+                    </div>
+                  </div>
 
                   {/* Description */}
                   <p className="text-xs sm:text-sm text-secondary leading-relaxed mb-6 flex-grow">

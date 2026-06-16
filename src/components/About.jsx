@@ -19,7 +19,7 @@ export default function About() {
               <div className="mb-8 sm:mb-10 md:mb-12 w-full max-w-xs">
                 <img
                   src={profilePhoto}
-                  alt="Ival Permana - Backend Developer & Cloud Engineer"
+                  alt="Ival Permana - Software Developer & Product Builder"
                   className="w-full h-auto rounded-sm border border-border hover:shadow-lg hover:shadow-accent/10 transition-all duration-500"
                 />
               </div>

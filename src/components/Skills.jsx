@@ -9,10 +9,7 @@ import redisIcon from "../assets/images/logos/redis.svg";
 import dockerIcon from "../assets/images/logos/docker.svg";
 import javaIcon from "../assets/images/logos/java.svg";
 import cloudIcon from "../assets/images/logos/cloud.svg";
-import networkIcon from "../assets/images/logos/network.png";
-import microservicesIcon from "../assets/images/logos/microservices.png";
 import aiIcon from "../assets/images/logos/ai.svg";
-import systemDesignIcon from "../assets/images/logos/system-design.png";
 import phpIcon from "../assets/images/logos/php.svg";
 import mysqlIcon from "../assets/images/logos/mysql.svg";
 import pythonIcon from "../assets/images/logos/python.svg";
@@ -22,25 +19,22 @@ import vueIcon from "../assets/images/logos/vue.svg";
 import firebaseIcon from "../assets/images/logos/firebase.svg";
 
 const iconMap = {
-  "Node.js": nodejsIcon,
-  "HTML / CSS": html5Icon,
-  "Dart / Flutter": flutterIcon,
-  PostgreSQL: postgresIcon,
-  Redis: redisIcon,
-  Docker: dockerIcon,
-  Java: javaIcon,
-  "Cloud Architecture": cloudIcon,
-  "Network Engineering": networkIcon,
-  Microservices: microservicesIcon,
-  "AI Integration": aiIcon,
-  "System Design": systemDesignIcon,
-  PHP: phpIcon,
-  "MySQL / XAMPP": mysqlIcon,
-  Python: pythonIcon,
-  FastAPI: fastapiIcon,
   "React.js": reactIcon,
   "Vue.js": vueIcon,
+  "HTML / CSS": html5Icon,
+  "Dart / Flutter": flutterIcon,
+  "Node.js": nodejsIcon,
+  Java: javaIcon,
+  PHP: phpIcon,
+  Python: pythonIcon,
+  FastAPI: fastapiIcon,
+  PostgreSQL: postgresIcon,
+  "MySQL / XAMPP": mysqlIcon,
+  Redis: redisIcon,
   Firebase: firebaseIcon,
+  Docker: dockerIcon,
+  "Cloud Architecture": cloudIcon,
+  "AI Integration": aiIcon,
 };
 
 export default function Skills() {
@@ -48,16 +42,22 @@ export default function Skills() {
 
   const categories = [
     {
-      title: t("skills.categories.languages"),
+      title: t("skills.categories.frontend"),
       items: [
         { name: "React.js", context: t("skills.contexts.react") },
         { name: "Vue.js", context: t("skills.contexts.vue") },
-        { name: "Node.js", context: t("skills.contexts.nodejs") },
-        { name: "Java", context: t("skills.contexts.java") },
         { name: "HTML / CSS", context: t("skills.contexts.html") },
         { name: "Dart / Flutter", context: t("skills.contexts.flutter") },
-        { name: "PHP", context: t("skills.contexts.php") },
+      ],
+    },
+    {
+      title: t("skills.categories.backend"),
+      items: [
+        { name: "Node.js", context: t("skills.contexts.nodejs") },
         { name: "Python", context: t("skills.contexts.python") },
+        { name: "FastAPI", context: t("skills.contexts.fastapi") },
+        { name: "Java", context: t("skills.contexts.java") },
+        { name: "PHP", context: t("skills.contexts.php") },
       ],
     },
     {
@@ -66,36 +66,15 @@ export default function Skills() {
         { name: "PostgreSQL", context: t("skills.contexts.postgres") },
         { name: "MySQL / XAMPP", context: t("skills.contexts.mysql") },
         { name: "Redis", context: t("skills.contexts.redis") },
-        { name: "FastAPI", context: t("skills.contexts.fastapi") },
         { name: "Firebase", context: t("skills.contexts.firebase") },
+      ],
+    },
+    {
+      title: t("skills.categories.deploy"),
+      items: [
         { name: "Docker", context: t("skills.contexts.docker") },
-      ],
-    },
-    {
-      title: t("skills.categories.infra"),
-      items: [
-        {
-          name: "Cloud Architecture",
-          context: t("skills.contexts.cloud"),
-        },
-        {
-          name: "Network Engineering",
-          context: t("skills.contexts.network"),
-        },
-        {
-          name: "Microservices",
-          context: t("skills.contexts.microservices"),
-        },
-      ],
-    },
-    {
-      title: t("skills.categories.tools"),
-      items: [
-        {
-          name: "AI Integration",
-          context: t("skills.contexts.ai"),
-        },
-        { name: "System Design", context: t("skills.contexts.systemDesign") },
+        { name: "Cloud Architecture", context: t("skills.contexts.cloud") },
+        { name: "AI Integration", context: t("skills.contexts.ai") },
       ],
     },
   ];

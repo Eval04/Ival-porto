@@ -108,7 +108,7 @@ export default function Hero() {
 
           <div
             ref={terminalRef}
-            className="px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 font-mono text-sm sm:text-base md:text-lg leading-relaxed min-h-[60vh] sm:min-h-[50vh] max-h-[70vh] overflow-y-auto"
+            className="px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 font-mono text-sm sm:text-base md:text-lg leading-relaxed min-h-[55vh] sm:min-h-[45vh] max-h-[65vh] overflow-y-auto"
           >
             {lines.map((line, index) => (
               <div key={index} className="mb-1 sm:mb-2">
@@ -175,18 +175,63 @@ export default function Hero() {
             )}
 
             {!isTyping && (
-              <div className="flex items-start gap-2 mt-2">
-                <span className="text-emerald-500 shrink-0">$</span>
-                <span
-                  className={`inline-block w-2 sm:w-2.5 h-4 sm:h-5 bg-accent ${showCursor ? "opacity-100" : "opacity-0"} transition-opacity duration-75`}
-                />
-              </div>
+              <>
+                <div className="flex items-start gap-2 mt-2">
+                  <span className="text-emerald-500 shrink-0">$</span>
+                  <span
+                    className={`inline-block w-2 sm:w-2.5 h-4 sm:h-5 bg-accent ${showCursor ? "opacity-100" : "opacity-0"} transition-opacity duration-75`}
+                  />
+                </div>
+
+                {/* CTA Buttons — appear after typing is done */}
+                <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-border/50 flex flex-col sm:flex-row gap-3 sm:gap-4 animate-[fadeSlideUp_0.6s_ease-out_both]">
+                  <a
+                    href="#projects"
+                    className="group relative inline-flex items-center justify-center border border-border px-6 sm:px-8 py-3 sm:py-3.5 rounded-sm font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary overflow-hidden transition-all duration-300 hover:border-accent hover:text-void bg-transparent"
+                  >
+                    <span className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] -z-10" />
+                    {t("hero.cta.projects")}
+                    <svg
+                      className="w-3.5 h-3.5 ml-2 transition-transform duration-300 group-hover:translate-y-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                      />
+                    </svg>
+                  </a>
+                  <a
+                    href="#contact"
+                    className="group relative inline-flex items-center justify-center border border-accent bg-accent/10 px-6 sm:px-8 py-3 sm:py-3.5 rounded-sm font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-primary overflow-hidden transition-all duration-300 hover:bg-accent hover:text-void"
+                  >
+                    {t("hero.cta.contact")}
+                    <svg
+                      className="w-3.5 h-3.5 ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </>
             )}
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator — FIX JARAK, DIJAUHKAN DARI TERMINAL */}
+      {/* Scroll indicator */}
       <div className="absolute bottom-6 sm:bottom-10 left-2 sm:left-4 md:left-8 lg:left-16 flex items-center gap-2 sm:gap-4">
         <div className="w-px h-12 sm:h-16 bg-border relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1/2 bg-accent animate-[slideDown_2.5s_ease-in-out_infinite]" />
@@ -203,6 +248,16 @@ export default function Hero() {
         @keyframes slideDown {
           0% { transform: translateY(-100%); }
           100% { transform: translateY(300%); }
+        }
+        @keyframes fadeSlideUp {
+          from {
+            opacity: 0;
+            transform: translateY(12px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       `}</style>
     </section>
