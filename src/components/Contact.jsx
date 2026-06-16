@@ -52,16 +52,31 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="https://wa.me/6281524193402"
+                  href="https://wa.me/6285111203407"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group block py-2 px-2 rounded hover:bg-surface/30 transition-colors duration-300"
                 >
                   <span className="font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.2em] text-tertiary block mb-2 sm:mb-3">
-                    WhatsApp
+                    WhatsApp / Phone
                   </span>
                   <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-sans text-primary group-hover:text-accent transition-colors duration-500 relative inline-block">
-                    +62 815-2419-3402
+                    +62 851-1120-3407
+                    <span className="absolute -bottom-2 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                  </span>
+                </a>
+
+                <a
+                  href="https://www.instagram.com/ival_permana28?igsh=MXBiNHMxOGRydWRndw%3D%3D&utm_source=qr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block py-2 px-2 rounded hover:bg-surface/30 transition-colors duration-300"
+                >
+                  <span className="font-mono text-[9px] sm:text-[11px] uppercase tracking-[0.2em] text-tertiary block mb-2 sm:mb-3">
+                    Instagram
+                  </span>
+                  <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-sans text-primary group-hover:text-accent transition-colors duration-500 relative inline-block">
+                    @ival_permana28
                     <span className="absolute -bottom-2 left-0 w-0 h-px bg-accent group-hover:w-full transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
                   </span>
                 </a>
