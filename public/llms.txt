@@ -1,0 +1,58 @@
+# Ival Permana — Portfolio
+
+> Software Developer & Product Builder — building websites, mobile apps, and AI-powered products from idea to reality.
+
+## About
+
+Ival Permana is a Computer Engineering student, Software Developer, and Product Builder. He specializes in Web Development, Mobile Applications, and AI Product Development. He builds end-to-end digital products from idea to deployment.
+
+## Contact
+
+- Website: https://ivalpermana.my.id
+- GitHub: https://github.com/Eval04
+- LinkedIn: https://www.linkedin.com/in/ival-permana-5273b6306
+
+## Skills & Tech Stack
+
+- **Frontend**: React.js, Vue.js 3, Tailwind CSS, HTML, CSS, JavaScript
+- **Backend**: Node.js, Python, FastAPI, Laravel
+- **Mobile**: Flutter, Dart
+- **Database**: PostgreSQL, Firebase (Firestore, Auth), Redis
+- **DevOps**: Docker, Docker Compose, GitHub Actions, Self-hosted Server
+- **AI/ML**: Groq API, LLaMA 3, AI-powered product development
+- **Other**: Git, REST API, Cloudinary, Google Maps API, Leaflet.js
+
+## Services
+
+- MVP Development — From concept to working product
+- Web Development — Responsive websites and web applications
+- Mobile Development — Cross-platform apps with Flutter
+- AI Product Development — AI-powered tools and integrations
+- Technical Consulting — Architecture and technology advisory
+
+## Projects
+
+### LinkinBio AI
+Smart bio link generator powered by AI. Built with Vue.js 3, Laravel 11, Tailwind v4, Docker, PostgreSQL, Redis, and Groq API.
+- URL: https://link-bio-puce.vercel.app/
+
+### EcoTrace
+Environmental tracking and report management web app. Built with React.js, Firebase, Tailwind, Leaflet.js, and Cloudinary.
+- URL: https://ecotrace-id.vercel.app/
+
+### CodeTack
+Developer code snippet organization tool. Built with HTML, CSS, Tailwind, and JavaScript.
+- URL: https://justrahyan.github.io/CodeTack/
+
+### ResearchFinder
+AI-powered research paper search and summarization platform. Built with Vue.js 3, FastAPI, Groq API, Python, PostgreSQL, Redis, Tailwind v4, Pinia, and Docker.
+- URL: https://github.com/Vals-devs/ReaserchHelper.git
+
+### SiagaDarah
+Blood donation emergency mobile app. Built with Flutter, Firebase Auth, Cloud Firestore, Firebase Messaging, and Google Maps API.
+
+## Pages
+
+- Home: https://ivalpermana.my.id/
+- All Projects: https://ivalpermana.my.id/#/all-projects
+- Interactive Playground: https://ivalpermana.my.id/#/playground

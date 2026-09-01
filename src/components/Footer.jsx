@@ -80,6 +80,37 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Internal Links — SEO: helps crawlers discover all pages */}
+        <div className="border-t border-border/50 pt-6">
+          <nav aria-label="Footer navigation">
+            <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center md:justify-start">
+              <a href="#projects" className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.15em] text-tertiary hover:text-primary transition-colors duration-300">
+                {t("nav.projects")}
+              </a>
+              <a href="#services" className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.15em] text-tertiary hover:text-primary transition-colors duration-300">
+                {t("nav.services")}
+              </a>
+              <a href="#about" className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.15em] text-tertiary hover:text-primary transition-colors duration-300">
+                {t("nav.about")}
+              </a>
+              <a href="#skills" className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.15em] text-tertiary hover:text-primary transition-colors duration-300">
+                {t("nav.skills")}
+              </a>
+              <a href="#contact" className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.15em] text-tertiary hover:text-primary transition-colors duration-300">
+                {t("nav.contact")}
+              </a>
+              <span className="text-border select-none hidden sm:inline">|</span>
+              <a href="#/all-projects" className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.15em] text-tertiary hover:text-primary transition-colors duration-300">
+                {t("nav.projects")} — All
+              </a>
+              <a href="#/playground" className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.15em] text-tertiary hover:text-primary transition-colors duration-300">
+                {t("nav.playground")}
+              </a>
+            </div>
+          </nav>
+        </div>
+
+
         {/* Telemetry Dashboard Dropdown */}
         {isTelemetryOpen && (
           <div className="border-t border-border pt-6 grid grid-cols-2 md:grid-cols-4 gap-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
