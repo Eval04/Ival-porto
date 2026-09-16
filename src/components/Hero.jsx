@@ -79,15 +79,8 @@ export default function Hero() {
     }
   }, [lines, currentChar, currentLine]);
 
-  const getCurrentTypingText = () => {
-    if (currentLine >= terminalContent.length) return "";
-    return terminalContent[currentLine].text.slice(0, currentChar);
-  };
-
-  const getCurrentLineType = () => {
-    if (currentLine >= terminalContent.length) return null;
-    return terminalContent[currentLine].type;
-  };
+  const typingText = terminalContent[currentLine]?.text.slice(0, currentChar) || "";
+  const typingType = terminalContent[currentLine]?.type;
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 overflow-hidden pt-16">
@@ -140,11 +133,11 @@ export default function Hero() {
 
             {isTyping && currentLine < terminalContent.length && (
               <div className="flex items-start gap-2">
-                {getCurrentLineType() === "command" ? (
+                {typingType === "command" ? (
                   <>
                     <span className="text-emerald-500 shrink-0">$</span>
                     <span className="text-accent">
-                      {getCurrentTypingText()}
+                      {typingText}
                       <span
                         className={`inline-block w-2 sm:w-2.5 h-4 sm:h-5 bg-accent ml-0.5 ${showCursor ? "opacity-100" : "opacity-0"} transition-opacity duration-75`}
                       />
@@ -154,7 +147,7 @@ export default function Hero() {
                   <div className="pl-0 sm:pl-4">
                     {currentLine === 1 ? (
                       <h1 className="text-primary text-xl sm:text-2xl md:text-3xl font-medium tracking-tight inline-block">
-                        {getCurrentTypingText()}
+                        {typingText}
                         <span
                           className={`inline-block w-2 sm:w-2.5 h-4 sm:h-5 bg-primary ml-0.5 ${showCursor ? "opacity-100" : "opacity-0"} transition-opacity duration-75`}
                         />
@@ -162,7 +155,7 @@ export default function Hero() {
                     ) : (
                       <>
                         <span className="text-secondary">
-                          {getCurrentTypingText()}
+                          {typingText}
                         </span>
                         <span
                           className={`inline-block w-2 sm:w-2.5 h-4 sm:h-5 bg-primary ml-0.5 ${showCursor ? "opacity-100" : "opacity-0"} transition-opacity duration-75`}

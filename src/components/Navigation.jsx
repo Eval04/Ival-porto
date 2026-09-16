@@ -1,6 +1,15 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
+const NAV_ITEMS = [
+  { key: "nav.projects", href: "#projects" },
+  { key: "nav.services", href: "#services" },
+  { key: "nav.about", href: "#about" },
+  { key: "nav.skills", href: "#skills" },
+  { key: "nav.contact", href: "#contact" },
+  { key: "nav.playground", href: "#/playground" },
+];
+
 export default function Navigation({ currentPage }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -12,14 +21,7 @@ export default function Navigation({ currentPage }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const links = [
-    { label: t("nav.projects"), href: "#projects" },
-    { label: t("nav.services"), href: "#services" },
-    { label: t("nav.about"), href: "#about" },
-    { label: t("nav.skills"), href: "#skills" },
-    { label: t("nav.contact"), href: "#contact" },
-    { label: t("nav.playground"), href: "#/playground" },
-  ];
+  const links = NAV_ITEMS.map((item) => ({ label: t(item.key), href: item.href }));
 
   return (
     <nav

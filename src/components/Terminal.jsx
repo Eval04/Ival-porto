@@ -65,142 +65,127 @@ export default function Terminal() {
       return;
     }
 
-    let output = [];
+    if (cleanCmd === "clear") {
+      setHistory([]);
+      return;
+    }
+    if (cleanCmd === "exit") {
+      setIsOpen(false);
+      return;
+    }
 
-    switch (cleanCmd) {
-      case "help":
-        output =
-          lang === "id"
-            ? [
-                "Perintah yang tersedia:",
-                "  about    - Menampilkan bio singkat",
-                "  skills   - Menampilkan pohon teknologi & peralatan",
-                "  projects - Menampilkan daftar proyek beserta tautan",
-                "  services - Menampilkan layanan yang ditawarkan",
-                "  neofetch - Menampilkan info sistem & spesifikasi",
-                "  clear    - Membersihkan layar terminal",
-                "  exit     - Keluar dari mode terminal",
-              ]
-            : [
-                "Available commands:",
-                "  about    - Display brief bio",
-                "  skills   - Show technologies & tools tree",
-                "  projects - List key projects with links",
-                "  services - Show services offered",
-                "  neofetch - Display system info & specs",
-                "  clear    - Clear terminal screen",
-                "  exit     - Close CLI terminal mode",
-              ];
-        break;
-
-      case "about":
-        output = [
-          t("hero.role"),
-          "----------------------------------------",
-          t("hero.about"),
-          "",
-          t("about.whoami"),
-        ];
-        break;
-
-      case "skills":
-        output = [
-          ".",
-          `├── ${t("skills.categories.frontend")}`,
-          "│   ├── React.js",
-          "│   ├── Vue.js",
-          "│   ├── HTML / CSS",
-          "│   └── Dart / Flutter",
-          `├── ${t("skills.categories.backend")}`,
-          "│   ├── Node.js",
-          "│   ├── Python",
-          "│   ├── FastAPI",
-          "│   ├── Java",
-          "│   └── PHP",
-          `├── ${t("skills.categories.database")}`,
-          "│   ├── PostgreSQL",
-          "│   ├── MySQL / XAMPP",
-          "│   ├── Redis",
-          "│   └── Firebase",
-          `└── ${t("skills.categories.deploy")}`,
-          "    ├── Docker",
-          "    ├── Cloud Architecture",
-          "    └── AI Integration",
-        ];
-        break;
-
-      case "projects":
-        output = [
-          "1. EcoTrace (2026)",
-          `   - ${t("projects.list.ecotrace.subtitle")}`,
-          `   - Link: https://ecotrace-id.vercel.app/`,
-          "",
-          "2. CodeTack (2025)",
-          `   - ${t("projects.list.codetack.subtitle")}`,
-          `   - Link: https://justrahyan.github.io/CodeTack/`,
-          "",
-          "3. LinkinBio AI (2026)",
-          `   - ${t("projects.list.linkinbio.subtitle")}`,
-          `   - Link: https://link-bio-puce.vercel.app/`,
-          "",
-          "4. ResearchFinder (2026) ★ Featured",
-          `   - ${t("projects.list.researchfinder.subtitle")}`,
-          `   - Link: https://github.com/Vals-devs/ReaserchHelper.git`,
-          "",
-          "5. SiagaDarah (2025)",
-          `   - ${t("projects.list.siagadarah.subtitle")}`,
-          `   - Link: [${t("projects.privateRepo")}]`,
-        ];
-        break;
-
-      case "services":
-        output =
-          lang === "id"
-            ? [
-                "Layanan yang saya tawarkan:",
-                "",
-                "01  Landing Page & Company Profile",
-                "    → Website responsif untuk bisnis kamu",
-                "",
-                "02  Aplikasi Web Custom",
-                "    → Dashboard, management system, business tools",
-                "",
-                "03  Aplikasi Mobile",
-                "    → Flutter apps untuk iOS & Android",
-                "",
-                "04  Pengembangan MVP",
-                "    → Validasi ide dengan produk minimum",
-                "",
-                "Hubungi: ivalpermana24@gmail.com",
-              ]
-            : [
-                "Services I offer:",
-                "",
-                "01  Landing Pages & Company Profiles",
-                "    → Responsive websites for your business",
-                "",
-                "02  Custom Web Applications",
-                "    → Dashboards, management systems, business tools",
-                "",
-                "03  Mobile Applications",
-                "    → Flutter apps for iOS & Android",
-                "",
-                "04  MVP Development",
-                "    → Validate ideas with minimum viable products",
-                "",
-                "Contact: ivalpermana24@gmail.com",
-              ];
-        break;
-
-      case "neofetch":
-        const logo = [
-          "  ___             _ ",
-          " |_ _|__   __ _ _| |",
-          "  | |\\ \\ / / _` | |",
-          "  | | \\ V / (_| | |",
-          " |___| \\_/ \\__,_|_|",
-          "",
-        ];
+    const commandMap = {
+      help: () =>
+        lang === "id"
+          ? [
+              "Perintah yang tersedia:",
+              "  about    - Menampilkan bio singkat",
+              "  skills   - Menampilkan pohon teknologi & peralatan",
+              "  projects - Menampilkan daftar proyek beserta tautan",
+              "  services - Menampilkan layanan yang ditawarkan",
+              "  neofetch - Menampilkan info sistem & spesifikasi",
+              "  clear    - Membersihkan layar terminal",
+              "  exit     - Keluar dari mode terminal",
+            ]
+          : [
+              "Available commands:",
+              "  about    - Display brief bio",
+              "  skills   - Show technologies & tools tree",
+              "  projects - List key projects with links",
+              "  services - Show services offered",
+              "  neofetch - Display system info & specs",
+              "  clear    - Clear terminal screen",
+              "  exit     - Close CLI terminal mode",
+            ],
+      about: () => [
+        t("hero.role"),
+        "----------------------------------------",
+        t("hero.about"),
+        "",
+        t("about.whoami"),
+      ],
+      skills: () => [
+        ".",
+        `├── ${t("skills.categories.frontend")}`,
+        "│   ├── React.js",
+        "│   ├── Vue.js",
+        "│   ├── HTML / CSS",
+        "│   └── Dart / Flutter",
+        `├── ${t("skills.categories.backend")}`,
+        "│   ├── Node.js",
+        "│   ├── Python",
+        "│   ├── FastAPI",
+        "│   ├── Java",
+        "│   └── PHP",
+        `├── ${t("skills.categories.database")}`,
+        "│   ├── PostgreSQL",
+        "│   ├── MySQL / XAMPP",
+        "│   ├── Redis",
+        "│   └── Firebase",
+        `└── ${t("skills.categories.deploy")}`,
+        "    ├── Docker",
+        "    ├── Cloud Architecture",
+        "    └── AI Integration",
+      ],
+      projects: () => [
+        "1. EcoTrace (2026)",
+        `   - ${t("projects.list.ecotrace.subtitle")}`,
+        `   - Link: https://ecotrace-id.vercel.app/`,
+        "",
+        "2. CodeTack (2025)",
+        `   - ${t("projects.list.codetack.subtitle")}`,
+        `   - Link: https://justrahyan.github.io/CodeTack/`,
+        "",
+        "3. LinkinBio AI (2026)",
+        `   - ${t("projects.list.linkinbio.subtitle")}`,
+        `   - Link: https://link-bio-puce.vercel.app/`,
+        "",
+        "4. ResearchFinder (2026) ★ Featured",
+        `   - ${t("projects.list.researchfinder.subtitle")}`,
+        `   - Link: https://github.com/Vals-devs/ReaserchHelper.git`,
+        "",
+        "5. SiagaDarah (2025)",
+        `   - ${t("projects.list.siagadarah.subtitle")}`,
+        `   - Link: [${t("projects.privateRepo")}]`,
+      ],
+      services: () =>
+        lang === "id"
+          ? [
+              "Layanan yang saya tawarkan:",
+              "",
+              "01  Landing Page & Company Profile",
+              "    → Website responsif untuk bisnis kamu",
+              "",
+              "02  Aplikasi Web Custom",
+              "    → Dashboard, management system, business tools",
+              "",
+              "03  Aplikasi Mobile",
+              "    → Flutter apps untuk iOS & Android",
+              "",
+              "04  Pengembangan MVP",
+              "    → Validasi ide dengan produk minimum",
+              "",
+              "Hubungi: ivalpermana24@gmail.com",
+            ]
+          : [
+              "Services I offer:",
+              "",
+              "01  Landing Pages & Company Profiles",
+              "    → Responsive websites for your business",
+              "",
+              "02  Custom Web Applications",
+              "    → Dashboards, management systems, business tools",
+              "",
+              "03  Mobile Applications",
+              "    → Flutter apps for iOS & Android",
+              "",
+              "04  MVP Development",
+              "    → Validate ideas with minimum viable products",
+              "",
+              "Contact: ivalpermana24@gmail.com",
+            ],
+      neofetch: () => {
+        const logo = ["  ___             _ ", " |_ _|__   __ _ _| |", "  | |\\ \\ / / _` | |", "  | | \\ V / (_| | |", " |___| \\_/ \\__,_|_|", ""];
         const sysInfo = [
           "ival@permana",
           "------------",
@@ -213,35 +198,18 @@ export default function Terminal() {
           "Products: 5+ shipped",
           "Stack: Web + Mobile + AI",
         ];
-        // Zip logo and info
-        const maxLength = Math.max(logo.length, sysInfo.length);
-        for (let i = 0; i < maxLength; i++) {
-          const l = logo[i] || "".padEnd(20);
-          const s = sysInfo[i] || "";
-          output.push(`${l.padEnd(24)}${s}`);
-        }
-        break;
+        return Array.from({ length: Math.max(logo.length, sysInfo.length) }, (_, i) =>
+          `${(logo[i] || "").padEnd(24)}${sysInfo[i] || ""}`
+        );
+      },
+    };
 
-      case "clear":
-        setHistory([]);
-        return;
-
-      case "exit":
-        setIsOpen(false);
-        return;
-
-      default:
-        output =
-          lang === "id"
-            ? [
-                `Command not found: '${cleanCmd}'.`,
-                "Ketik 'help' untuk daftar perintah.",
-              ]
-            : [
-                `Command not found: '${cleanCmd}'.`,
-                "Type 'help' for available commands.",
-              ];
-    }
+    const handler = commandMap[cleanCmd];
+    const output = handler
+      ? handler()
+      : lang === "id"
+      ? [`Command not found: '${cleanCmd}'.`, "Ketik 'help' untuk daftar perintah."]
+      : [`Command not found: '${cleanCmd}'.`, "Type 'help' for available commands."];
 
     setHistory([...newHistory, ...output, ""]);
   };

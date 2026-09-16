@@ -1,29 +1,22 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
+const PRODUCTS_SHIPPED = 5;
+const LINES_OF_CODE = "42.8k";
+
 export default function Footer() {
   const { t } = useLanguage();
   const [isTelemetryOpen, setIsTelemetryOpen] = useState(false);
-  
-  // Simulated metric states
-  const [productsShipped, setProductsShipped] = useState(5);
-  const [linesOfCode, setLinesOfCode] = useState("42.8k");
   const [uptime, setUptime] = useState("");
 
-  // Calculate uptime dynamically since June 1, 2026
   useEffect(() => {
-    const calculateUptime = () => {
-      const launchDate = new Date("2026-06-01T00:00:00Z");
-      const diff = new Date() - launchDate;
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const mins = Math.floor((diff / (1000 * 60)) % 60);
-      const secs = Math.floor((diff / 1000) % 60);
-      setUptime(`${days}d ${hours}h ${mins}m ${secs}s`);
+    const start = new Date("2026-06-01T00:00:00Z");
+    const update = () => {
+      const d = Math.floor((Date.now() - start) / 1000);
+      setUptime(`${Math.floor(d / 86400)}d ${Math.floor((d % 86400) / 3600)}h ${Math.floor((d % 3600) / 60)}m ${d % 60}s`);
     };
-    
-    calculateUptime();
-    const interval = setInterval(calculateUptime, 1000);
+    update();
+    const interval = setInterval(update, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -119,7 +112,7 @@ export default function Footer() {
                 Products Shipped
               </span>
               <span className="font-mono text-xs text-primary font-medium">
-                {productsShipped}+ products
+                {PRODUCTS_SHIPPED}+ products
               </span>
             </div>
             <div className="flex flex-col gap-1.5">
@@ -127,7 +120,7 @@ export default function Footer() {
                 Lines Written
               </span>
               <span className="font-mono text-xs text-primary font-medium">
-                ~{linesOfCode}
+                ~{LINES_OF_CODE}
               </span>
             </div>
             <div className="flex flex-col gap-1.5">
