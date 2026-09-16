@@ -27,18 +27,8 @@ export function LanguageProvider({ children }) {
     localStorage.setItem("lang", newLang);
   };
 
-  const t = (path) => {
-    const keys = path.split(".");
-    let result = translations[lang];
-    for (const key of keys) {
-      if (result && result[key] !== undefined) {
-        result = result[key];
-      } else {
-        return path;
-      }
-    }
-    return result;
-  };
+  const t = (path) =>
+    path.split(".").reduce((res, key) => (res && res[key] !== undefined ? res[key] : null), translations[lang]) ?? path;
 
   return (
     <LanguageContext.Provider value={{ lang, setLang, t }}>

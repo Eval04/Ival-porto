@@ -45,37 +45,18 @@ const PAGE_META = {
   },
 };
 
-// Known hash routes
-const KNOWN_ROUTES = [
-  "", // landing (no hash or just #)
-  "#",
-  "#projects",
-  "#services",
-  "#about",
-  "#skills",
-  "#contact",
-  "#/all-projects",
-  "#/playground",
-];
-
 function App() {
   const [currentPage, setCurrentPage] = useState("landing");
 
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
+      const routes = { "#/all-projects": "projects", "#/playground": "playground" };
 
-      if (hash === "#/all-projects") {
-        setCurrentPage("projects");
+      if (routes[hash]) {
+        setCurrentPage(routes[hash]);
         window.scrollTo({ top: 0, behavior: "instant" });
-      } else if (hash === "#/playground") {
-        setCurrentPage("playground");
-        window.scrollTo({ top: 0, behavior: "instant" });
-      } else if (
-        hash.startsWith("#/") &&
-        !KNOWN_ROUTES.includes(hash)
-      ) {
-        // Unknown hash route starting with #/ → 404
+      } else if (hash.startsWith("#/")) {
         setCurrentPage("notfound");
         window.scrollTo({ top: 0, behavior: "instant" });
       } else {
@@ -85,50 +66,21 @@ function App() {
 
     window.addEventListener("hashchange", handleHashChange);
     handleHashChange();
-
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
   // SEO: Update document title, meta description, and canonical tag per page
   useEffect(() => {
     const meta = PAGE_META[currentPage] || PAGE_META.landing;
-
-    // Update title
     document.title = meta.title;
 
-    // Update meta description
-    let descTag = document.querySelector('meta[name="description"]');
-    if (descTag) {
-      descTag.setAttribute("content", meta.description);
-    }
+    const setMetaContent = (selectors, value) =>
+      selectors.forEach((s) => document.querySelector(s)?.setAttribute("content", value));
 
-    // Update canonical
-    let canonicalTag = document.querySelector('link[rel="canonical"]');
-    if (canonicalTag) {
-      canonicalTag.setAttribute("href", meta.canonical);
-    }
-
-    // Update OG tags
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute("content", meta.title);
-
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute("content", meta.description);
-
-    const ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute("content", meta.canonical);
-
-    // Update Twitter tags
-    const twTitle = document.querySelector('meta[property="twitter:title"]');
-    if (twTitle) twTitle.setAttribute("content", meta.title);
-
-    const twDesc = document.querySelector(
-      'meta[property="twitter:description"]'
-    );
-    if (twDesc) twDesc.setAttribute("content", meta.description);
-
-    const twUrl = document.querySelector('meta[property="twitter:url"]');
-    if (twUrl) twUrl.setAttribute("content", meta.canonical);
+    setMetaContent(['meta[name="description"]', 'meta[property="og:description"]', 'meta[property="twitter:description"]'], meta.description);
+    setMetaContent(['meta[property="og:title"]', 'meta[property="twitter:title"]'], meta.title);
+    setMetaContent(['meta[property="og:url"]', 'meta[property="twitter:url"]'], meta.canonical);
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href", meta.canonical);
   }, [currentPage]);
 
   useEffect(() => {

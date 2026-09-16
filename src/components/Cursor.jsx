@@ -18,8 +18,12 @@ export default function Cursor() {
       dot.style.top = e.clientY + "px";
     };
 
-    const onEnterLink = () => cursor.classList.add("expanded");
-    const onLeaveLink = () => cursor.classList.remove("expanded");
+    const onOver = (e) => {
+      if (e.target.closest("a, button, [data-cursor]")) cursor.classList.add("expanded");
+    };
+    const onOut = (e) => {
+      if (e.target.closest("a, button, [data-cursor]")) cursor.classList.remove("expanded");
+    };
 
     const animate = () => {
       const ease = 0.12;
@@ -32,28 +36,14 @@ export default function Cursor() {
 
     raf.current = requestAnimationFrame(animate);
     document.addEventListener("mousemove", onMove);
-
-    const links = document.querySelectorAll("a, button, [data-cursor]");
-    links.forEach((el) => {
-      el.addEventListener("mouseenter", onEnterLink);
-      el.addEventListener("mouseleave", onLeaveLink);
-    });
-
-    // Re-bind dynamically added links
-    const observer = new MutationObserver(() => {
-      document.querySelectorAll("a, button, [data-cursor]").forEach((el) => {
-        el.removeEventListener("mouseenter", onEnterLink);
-        el.removeEventListener("mouseleave", onLeaveLink);
-        el.addEventListener("mouseenter", onEnterLink);
-        el.addEventListener("mouseleave", onLeaveLink);
-      });
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
+    document.addEventListener("mouseover", onOver);
+    document.addEventListener("mouseout", onOut);
 
     return () => {
       document.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseover", onOver);
+      document.removeEventListener("mouseout", onOut);
       cancelAnimationFrame(raf.current);
-      observer.disconnect();
     };
   }, []);
 

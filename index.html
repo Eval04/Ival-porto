@@ -2,84 +2,64 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#09090b" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <link rel="canonical" href="https://ivalpermana.my.id/" />
+
     <title>Ival Permana — Software Developer & Product Builder</title>
     <meta name="description" content="Portfolio of Ival Permana. Software Developer & Product Builder — building websites, mobile apps, and AI-powered products from idea to reality." />
     <meta name="keywords" content="Ival Permana, Software Developer, Product Builder, Web Developer, Mobile Developer, Flutter, AI Products, MVP Development, React, Vue.js, Portfolio, ResearchFinder, EcoTrace, CodeTack, LinkinBio AI" />
     <meta name="author" content="Ival Permana" />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph & Twitter Meta -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ival Permana Portfolio" />
     <meta property="og:url" content="https://ivalpermana.my.id/" />
     <meta property="og:title" content="Ival Permana — Software Developer & Product Builder" />
     <meta property="og:description" content="Building websites, mobile apps, and AI-powered products — from idea to reality. View my projects and services." />
     <meta property="og:image" content="https://ivalpermana.my.id/Ival.jpg" />
-    <meta property="og:site_name" content="Ival Permana Portfolio" />
-    <meta property="og:locale" content="en_US" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://ivalpermana.my.id/" />
-    <meta property="twitter:title" content="Ival Permana — Software Developer & Product Builder" />
-    <meta property="twitter:description" content="Building websites, mobile apps, and AI-powered products — from idea to reality. View my projects and services." />
-    <meta property="twitter:image" content="https://ivalpermana.my.id/Ival.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://ivalpermana.my.id/" />
+    <meta name="twitter:title" content="Ival Permana — Software Developer & Product Builder" />
+    <meta name="twitter:description" content="Building websites, mobile apps, and AI-powered products — from idea to reality. View my projects and services." />
+    <meta name="twitter:image" content="https://ivalpermana.my.id/Ival.jpg" />
 
-    <!-- Structured Data (Schema.org) for Search Engines -->
-    <!-- Structured Data (Schema.org) - Person -->
+    <!-- Schema.org JSON-LD (@graph combination) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Ival Permana",
-        "alternateName": ["Ival", "Eval04"],
-        "jobTitle": "Software Developer & Product Builder",
-        "url": "https://ivalpermana.my.id",
-        "image": "https://ivalpermana.my.id/Ival.jpg",
-        "description": "Software Developer & Product Builder — building websites, mobile apps, and AI-powered products from idea to reality.",
-        "sameAs": [
-          "https://github.com/Eval04",
-          "https://www.linkedin.com/in/ival-permana-5273b6306"
-        ],
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "https://ivalpermana.my.id"
-        },
-        "knowsAbout": [
-          "Web Development",
-          "Mobile Development",
-          "AI Product Development",
-          "MVP Development",
-          "React.js",
-          "Vue.js",
-          "Flutter",
-          "Python",
-          "FastAPI",
-          "Product Building"
+        "@graph": [
+          {
+            "@type": "Person",
+            "name": "Ival Permana",
+            "alternateName": ["Ival", "Eval04"],
+            "jobTitle": "Software Developer & Product Builder",
+            "url": "https://ivalpermana.my.id",
+            "image": "https://ivalpermana.my.id/Ival.jpg",
+            "description": "Software Developer & Product Builder — building websites, mobile apps, and AI-powered products from idea to reality.",
+            "sameAs": [
+              "https://github.com/Eval04",
+              "https://www.linkedin.com/in/ival-permana-5273b6306"
+            ],
+            "knowsAbout": ["Web Development", "Mobile Development", "AI Product Development", "MVP Development", "React.js", "Vue.js", "Flutter", "Python", "FastAPI", "Product Building"]
+          },
+          {
+            "@type": "WebSite",
+            "name": "Ival Permana Portfolio",
+            "url": "https://ivalpermana.my.id",
+            "description": "Portfolio of Ival Permana — Software Developer & Product Builder",
+            "author": { "@type": "Person", "name": "Ival Permana" }
+          }
         ]
-      }
-    </script>
-    <!-- Structured Data (Schema.org) - WebSite -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Ival Permana Portfolio",
-        "url": "https://ivalpermana.my.id",
-        "description": "Portfolio of Ival Permana — Software Developer & Product Builder",
-        "author": {
-          "@type": "Person",
-          "name": "Ival Permana"
-        }
       }
     </script>
   </head>
   <body>
     <div id="root">
-      <!-- Pre-rendered Static HTML for Search Engine Crawlers (Replaced when React mounts) -->
+      <!-- Pre-rendered Static HTML for Crawlers -->
       <header>
         <h1>Ival Permana — Software Developer & Product Builder</h1>
         <p>Building websites, mobile apps, and AI-powered products from idea to reality.</p>
@@ -93,22 +73,10 @@
         <section id="projects-preview">
           <h2>Projects by Ival Permana</h2>
           <ul>
-            <li>
-              <h3>ResearchFinder</h3>
-              <p>AI-powered research paper search and summarization platform built with Python FastAPI, Vue 3, and LLaMA 3.</p>
-            </li>
-            <li>
-              <h3>EcoTrace</h3>
-              <p>Environmental tracking and report management web app built with React and Firebase.</p>
-            </li>
-            <li>
-              <h3>CodeTack</h3>
-              <p>Developer code snippet organization tool.</p>
-            </li>
-            <li>
-              <h3>LinkinBio AI</h3>
-              <p>Smart bio link generator powered by AI.</p>
-            </li>
+            <li><h3>ResearchFinder</h3><p>AI-powered research paper search and summarization platform built with Python FastAPI, Vue 3, and LLaMA 3.</p></li>
+            <li><h3>EcoTrace</h3><p>Environmental tracking and report management web app built with React and Firebase.</p></li>
+            <li><h3>CodeTack</h3><p>Developer code snippet organization tool.</p></li>
+            <li><h3>LinkinBio AI</h3><p>Smart bio link generator powered by AI.</p></li>
           </ul>
         </section>
         <section id="contact-preview">
@@ -117,7 +85,6 @@
           <p>GitHub: <a href="https://github.com/Eval04">https://github.com/Eval04</a></p>
           <p>LinkedIn: <a href="https://www.linkedin.com/in/ival-permana-5273b6306">https://www.linkedin.com/in/ival-permana-5273b6306</a></p>
         </section>
-        <!-- Internal Links for SEO crawlers -->
         <nav aria-label="Site navigation">
           <h2>Site Navigation</h2>
           <ul>
