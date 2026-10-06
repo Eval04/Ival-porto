@@ -51,7 +51,7 @@ export default function AllProjects() {
       problem: t("projects.list.researchfinder.problem"),
       outcome: t("projects.list.researchfinder.outcome"),
       tags: ["Vue.js 3", "FastAPI", "Groq API", "Python", "PostgreSQL", "Redis", "Tailwind v4", "Pinia", "Docker"],
-      link: "https://github.com/Vals-devs/ReaserchHelper.git",
+      link: "https://research.ivalpermana.my.id",
       image: "/images/ReaserchFinder.png",
       year: "2026",
       categories: ["all", "fullstack", "ai"],

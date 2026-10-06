@@ -177,7 +177,7 @@ export default function FeaturedProject() {
               {/* CTA */}
               <div className="mt-8 sm:mt-10 pt-6 border-t border-border flex justify-between items-center">
                 <a
-                  href="https://github.com/Vals-devs/ReaserchHelper.git"
+                  href="https://research.ivalpermana.my.id"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group/link inline-flex items-center gap-3 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-secondary hover:text-primary transition-colors duration-300 py-1"

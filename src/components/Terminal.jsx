@@ -142,7 +142,7 @@ export default function Terminal() {
         "",
         "4. ResearchFinder (2026) ★ Featured",
         `   - ${t("projects.list.researchfinder.subtitle")}`,
-        `   - Link: https://github.com/Vals-devs/ReaserchHelper.git`,
+        `   - Link: https://research.ivalpermana.my.id`,
         "",
         "5. SiagaDarah (2025)",
         `   - ${t("projects.list.siagadarah.subtitle")}`,

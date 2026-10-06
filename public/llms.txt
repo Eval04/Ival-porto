@@ -46,7 +46,7 @@ Developer code snippet organization tool. Built with HTML, CSS, Tailwind, and Ja
 
 ### ResearchFinder
 AI-powered research paper search and summarization platform. Built with Vue.js 3, FastAPI, Groq API, Python, PostgreSQL, Redis, Tailwind v4, Pinia, and Docker.
-- URL: https://github.com/Vals-devs/ReaserchHelper.git
+- URL: https://research.ivalpermana.my.id
 
 ### SiagaDarah
 Blood donation emergency mobile app. Built with Flutter, Firebase Auth, Cloud Firestore, Firebase Messaging, and Google Maps API.
